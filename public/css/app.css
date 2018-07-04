@@ -2247,7 +2247,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 }
 
 .form-check-inline {
-    display: -webkit-inline-box;
+
     display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-align: center;
