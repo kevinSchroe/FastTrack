@@ -25,4 +25,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/admin_dashboard', 'AdminController@index')->name('admin_dashboard');
 
-
+Route::get('/example', 'ExampleController@index');
+Route::post('/example', 'ExampleController@example');
