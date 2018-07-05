@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Role;
+use App\Stammdaten;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -76,6 +77,20 @@ class RegisterController extends Controller
         $user
             ->roles()
             ->attach(Role::where('name', 'fahrschueler')->first());
+
+        Stammdaten::create([
+            'Vorname' => $data['vorname'],
+            'Nachname' => $data['Nachname'],
+            'Strasse' => $data['Strasse'],
+            'Hausnummer' => $data['Hausnummer'],
+            'Postleitzahl' => $data['Postleitzahl'],
+            'Ort' => $data['Ort'],
+            'Geburtsdatum' => $data['Geburtsdatum'],
+            'Telefonnummer' => $data['Telefonnummer'],
+            'IBAN' => $data['IBAN'],
+            'BIC' => $data['BIC'],
+
+        ]);
 
         return $user;
     }
