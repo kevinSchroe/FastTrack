@@ -151,7 +151,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Geburtsdatum') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="Geburtsdatum" type="text" class="form-control{{ $errors->has('Geburtsdatum') ? ' is-invalid' : '' }}" name="Geburtsdatum"  required >
+                                    <input id="Geburtsdatum" type="text" class="form-control{{ $errors->has('Geburtsdatum') ? ' is-invalid' : '' }}" name="Geburtsdatum"  required placeholder="YYYY-MM-DD" >
 
                                     @if ($errors->has('Geburtsdatum'))
                                         <span class="invalid-feedback" role="alert">
@@ -193,7 +193,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('BIC') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="BIC" type="text" class="form-control{{ $errors->has('BIC') ? ' is-invalid' : '' }}" name="BIC"  required >
+                                    <input id="BIC" type="text" class="form-control{{ $errors->has('BIC') ? ' is-invalid' : '' }}" name="BIC"  required  >
 
                                     @if ($errors->has('BIC'))
                                         <span class="invalid-feedback" role="alert">
