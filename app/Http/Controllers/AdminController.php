@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Providers\AppServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -27,10 +28,18 @@ class AdminController extends Controller
     public function index()
     {
 
-
         $user = Auth::user();
-        $user ->authorizeRoles(['admin']);
-        return view(  'admin.admin_dashboard');
+        if ( $user->hasRole ('admin')){
+
+
+
+            return view(  'admin.admin_dashboard');
+        }
+        else{
+            abort(401, 'This action is unauthorized.');
+        }
+
+
     }
 
 }

@@ -12,14 +12,14 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password',
+      'role',  'name', 'email', 'password',
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    public function roles()
+     public function roles()
     {
         return $this->belongsToMany(Role::class);
     }
@@ -41,7 +41,7 @@ class User extends Authenticatable
      */
     public function hasAnyRole($roles)
     {
-        return null !== $this->roles()->whereIn('name', $roles)->first();
+        return null !== $this->whereIn('role', $roles)->first();
     }
 
     /**
@@ -50,6 +50,6 @@ class User extends Authenticatable
      */
     public function hasRole($role)
     {
-        return null !== $this->roles()->where('name', $role)->first();
+        return null !== $this->where('name', $role)->first();
     }
 }

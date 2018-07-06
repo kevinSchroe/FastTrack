@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-<!-- Diesse Seite dient zur Registrierung der Fahrschüler und erfasst die Daten, welche in der Datenbank gespeichert werden -->
 
 @section('content')
     <div class="container">
@@ -13,10 +12,20 @@
                         <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                             @csrf
 
+                            <<div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Rolle') }}</label>
+
+                                <select name="Rolle">
+                                    <option value="value1">Admin</option>
+                                    <option value="value2">Fahrlehrer</option>
+                                    <option value="value3">Fahrschueler</option>
+                                </select>
+                            </div>
+
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                              <div class="col-md-6">
+                                <div class="col-md-6">
                                     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
                                     @if ($errors->has('name'))
