@@ -30,7 +30,7 @@ class AdminController extends Controller
 
         $user = Auth::user();
         $user ->authorizeRoles(['admin']);
-        return view(  'admin/admin_dashboard');
+        return view(  'admin.admin_dashboard');
     }
 
 }
