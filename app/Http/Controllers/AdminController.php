@@ -6,6 +6,7 @@ use App\Providers\AppServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Gate;
 
 
 class AdminController extends Controller
@@ -29,15 +30,13 @@ class AdminController extends Controller
     {
 
         $user = Auth::user();
-        if ( $user->hasRole ('admin')){
 
-
-
+        if (Gate::allows('isadmin')) {
             return view(  'admin.admin_dashboard');
-        }
-        else{
+        }else {
             abort(401, 'This action is unauthorized.');
         }
+
 
 
     }

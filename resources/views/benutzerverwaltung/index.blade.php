@@ -46,8 +46,12 @@
                 <td>{{ $stammdaten->IBAN}}</td>
                 <td>{{ $stammdaten->BIC}}</td>
                 <td>
-                    <a href="" class="btn btn-success">Delete</a>
                     <a href="" class="btn btn-success">Edit</a>
+
+                    {!! Form::open(['method'=>'delete', 'route'=>['stammdaten.destroy', $stammdaten->id]]) !!}
+                    {!! Form::submit('Delete', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+                    {!! Form::close() !!}
+
                 </td>
 
             </tr>
