@@ -44,8 +44,34 @@ class StammdatenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'=>'Required',
+            'email'=>'Required',
+            'password'=>'Required',
+            'Vorname'=>'Required',
+            'Nachname'=>'Required',
+            'Strasse'=>'Required',
+            'Hausnummer'=>'Required',
+            'Postleitzahl'=>'Required',
+            'Ort'=>'Required',
+            'Geburtsdatum'=>'Required',
+            'Telefonnummer'=>'Required',
+            'IBAN'=>'Required',
+            'BIC'=>'Required',
+
+        ]);
+
+        $stammdaten =   $request->all();
+        $benutzer = $request->all();
+        user::create($benutzer);
+        Stammdaten::create($stammdaten);
+
+        return redirect('stammdaten');
+
+
     }
+
+
 
     /**
      * Display the specified resource.
