@@ -13,6 +13,7 @@
             <th>e-Mail</th>
             <th>name</th>
             <th>ID</th>
+            <th>Rolle</th>
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Straße</th>
@@ -36,6 +37,7 @@
                     <td>{{ $user->email}}</td>
 
                 <td>{{ $stammdaten->id }}</td>
+                    <td>{{ $stammdaten->role }}</td>
                 <td>{{ $stammdaten->Vorname}}</td>
                 <td>{{ $stammdaten->Nachname}}</td>
                 <td>{{ $stammdaten->Strasse}}</td>
@@ -47,7 +49,7 @@
                 <td>{{ $stammdaten->BIC}}</td>
                 <td>
 
-                    <a class="btn btn-small btn-info" href="{{ URL::to('stammdaten' . $stammdaten->id . '/edit') }}">Edit</a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('stammdaten/edit' ,$stammdaten->id ) }}">Edit</a>
 
 
 

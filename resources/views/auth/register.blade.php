@@ -67,11 +67,11 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Vorname') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="vorname" type="text" class="form-control{{ $errors->has('vorname') ? ' is-invalid' : '' }}" name="vorname"  required >
+                                    <input id="Vorname" type="text" class="form-control{{ $errors->has('Vorname') ? ' is-invalid' : '' }}" name="Vorname"  required >
 
-                                    @if ($errors->has('vorname'))
+                                    @if ($errors->has('Vorname'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('vorname') }}</strong>
+                                        <strong>{{ $errors->first('Vorname') }}</strong>
                                     </span>
                                     @endif
                                 </div>

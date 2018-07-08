@@ -30,3 +30,4 @@ Route::post('/example', 'ExampleController@example');
 
 Route::resource ('/stammdaten', 'StammdatenController');
 
+

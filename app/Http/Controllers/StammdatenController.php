@@ -44,27 +44,27 @@ class StammdatenController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name'=>'Required',
-            'email'=>'Required',
-            'password'=>'Required',
-            'Vorname'=>'Required',
-            'Nachname'=>'Required',
-            'Strasse'=>'Required',
-            'Hausnummer'=>'Required',
-            'Postleitzahl'=>'Required',
-            'Ort'=>'Required',
-            'Geburtsdatum'=>'Required',
-            'Telefonnummer'=>'Required',
-            'IBAN'=>'Required',
-            'BIC'=>'Required',
-
+        $user = User::create([
+            'role'=> $request['role'],
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
         ]);
 
-        $stammdaten =   $request->all();
-        $benutzer = $request->all();
-        user::create($benutzer);
-        Stammdaten::create($stammdaten);
+
+        Stammdaten::create([
+            'Vorname' => $request['Vorname'],
+            'Nachname' => $request['Nachname'],
+            'Strasse' => $request['Strasse'],
+            'Hausnummer' => $request['Hausnummer'],
+            'Postleitzahl' => $request['Postleitzahl'],
+            'Ort' => $request['Ort'],
+            'Geburtsdatum' => $request['Geburtsdatum'],
+            'Telefonnummer' => $request['Telefonnummer'],
+            'IBAN' => $request['IBAN'],
+            'BIC' => $request['BIC'],
+
+        ]);
 
         return redirect('stammdaten');
 
@@ -81,7 +81,7 @@ class StammdatenController extends Controller
      */
     public function show(stammdaten $stammdaten)
     {
-        $data=Stammdaten::select("select * from Stammdaten");
+        $data=Stammdaten::select("select * from stammdaten");
     print_r($data);
     }
 
@@ -91,10 +91,18 @@ class StammdatenController extends Controller
      * @param  \App\stammdaten  $stammdaten
      * @return \Illuminate\Http\Response
      */
-    public function edit(stammdaten $stammdaten)
+
+
+        public function edit($id)
     {
-        //
+        // get the nerd
+        $aktuelleStammdaten= Stammdaten::find($id);
+        $aktuellerUser = User::find($id);
+        // show the edit form and pass the nerd
+        return View::make('stammdaten.edit')
+            ->with('User', $aktuellerUser, $aktuelleStammdaten);
     }
+
 
     /**
      * Update the specified resource in storage.

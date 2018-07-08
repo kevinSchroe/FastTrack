@@ -3,7 +3,6 @@
 <!-- Diesse Seite dient zur Registrierung der Fahrschüler und erfasst die Daten, welche in der Datenbank gespeichert werden -->
 
 @section('content')
-
     <!-- if there are creation errors, they will show here -->
 
 

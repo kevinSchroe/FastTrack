@@ -79,7 +79,7 @@ class RegisterController extends Controller
 
 
         Stammdaten::create([
-            'Vorname' => $data['vorname'],
+            'Vorname' => $data['Vorname'],
             'Nachname' => $data['Nachname'],
             'Strasse' => $data['Strasse'],
             'Hausnummer' => $data['Hausnummer'],
