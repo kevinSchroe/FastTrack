@@ -100,7 +100,7 @@ class StammdatenController extends Controller
         $aktuellerUser = User::find($id);
         // show the edit form and pass the nerd
         return View::make('stammdaten.edit')
-            ->with('User', $aktuellerUser, $aktuelleStammdaten);
+            ->with('User', $aktuellerUser, $aktuelleStammdaten, $id);
     }
 
 

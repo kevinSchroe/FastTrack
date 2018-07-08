@@ -49,7 +49,7 @@
                 <td>{{ $stammdaten->BIC}}</td>
                 <td>
 
-                    <a class="btn btn-small btn-info" href="{{ URL::to('stammdaten/edit' ,$stammdaten->id ) }}">Edit</a>
+                    <a class="btn btn-small btn-info" href="{{ URL::to('stammdaten/edit' ,$stammdaten['id'] ) }}">Edit</a>
 
 
 
