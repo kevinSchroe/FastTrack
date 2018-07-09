@@ -70,15 +70,15 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-                $user = User::create([
-                    'role'=> 'fahrschueler',
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'password' => bcrypt($data['password']),
-                    ]);
+        $user = User::create([
+            'role' => 'fahrschueler',
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
 
 
-        Stammdaten::create([
+        $stammdaten = Stammdaten::create([
             'Vorname' => $data['Vorname'],
             'Nachname' => $data['Nachname'],
             'Strasse' => $data['Strasse'],
@@ -91,6 +91,8 @@ class RegisterController extends Controller
             'BIC' => $data['BIC'],
 
         ]);
+
+        $stammdaten->users()->attach($user);
 
         return $user;
     }

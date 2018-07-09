@@ -31,39 +31,36 @@
 
         @foreach($stammdatens as $stammdaten)
             <tr>
-                @foreach($benutzers as $user)
+                @foreach($stammdaten->users as $user)
 
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name}}</td>
                     <td>{{ $user->email}}</td>
                     <td>{{ $user->role }}</td>
 
-                <td>{{ $stammdaten->id }}</td>
-                <td>{{ $stammdaten->Vorname}}</td>
-                <td>{{ $stammdaten->Nachname}}</td>
-                <td>{{ $stammdaten->Strasse}}</td>
-                <td>{{ $stammdaten->Hausnummer }}</td>
-                <td>{{ $stammdaten->Postleitzahl}}</td>
-                <td>{{ $stammdaten->Ort}}</td>
-                <td>{{ $stammdaten->Geburtsdatum}}</td>
-                <td>{{ $stammdaten->IBAN}}</td>
-                <td>{{ $stammdaten->BIC}}</td>
-                <td>
+                    <td>{{ $stammdaten->id }}</td>
+                    <td>{{ $stammdaten->Vorname}}</td>
+                    <td>{{ $stammdaten->Nachname}}</td>
+                    <td>{{ $stammdaten->Strasse}}</td>
+                    <td>{{ $stammdaten->Hausnummer }}</td>
+                    <td>{{ $stammdaten->Postleitzahl}}</td>
+                    <td>{{ $stammdaten->Ort}}</td>
+                    <td>{{ $stammdaten->Geburtsdatum}}</td>
+                    <td>{{ $stammdaten->IBAN}}</td>
+                    <td>{{ $stammdaten->BIC}}</td>
+                    <td>
 
-                    <a href="{{ route('stammdaten.edit', $stammdaten->id) }}" class="btn btn-success">Edit</a>
+                        <a href="{{ route('stammdaten.edit', $stammdaten->id) }}" class="btn btn-success">Edit</a>
 
-                    {!! Form::open(['method'=>'delete', 'route'=>['stammdaten.destroy', $stammdaten->id]]) !!}
-                    {!! Form::submit('Delete', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
-                    {!! Form::close() !!}
+                        {!! Form::open(['method'=>'delete', 'route'=>['stammdaten.destroy', $stammdaten->id]]) !!}
+                        {!! Form::submit('Delete', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+                        {!! Form::close() !!}
 
 
-
-                </td>
-
+                    </td>
+                @endforeach
             </tr>
-
         @endforeach
-             @endforeach
         </tbody>
     </table>
 
