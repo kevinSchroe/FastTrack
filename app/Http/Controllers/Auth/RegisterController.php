@@ -78,7 +78,8 @@ class RegisterController extends Controller
         ]);
 
 
-        $stammdaten = Stammdaten::create([
+         Stammdaten::create([
+            'user_id' => $user->id,
             'Vorname' => $data['Vorname'],
             'Nachname' => $data['Nachname'],
             'Strasse' => $data['Strasse'],
@@ -92,9 +93,9 @@ class RegisterController extends Controller
 
         ]);
 
-        $stammdaten->users()->attach($user);
 
         return $user;
     }
+
 
 }

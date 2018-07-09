@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return null !== $this->where('name', $role)->first();
     }
+
+    public function Stammdaten(){
+        return $this->belongsTo('Stammdaten');
+    }
+
 }

@@ -15,6 +15,7 @@ class CreateStammdatenTable extends Migration
     {
         Schema::create('stammdatens', function (Blueprint $table) {
             $table->increments('id');
+            $table ->integer('user_id');
             $table->string('Vorname');
             $table->string('Nachname');
             $table->string('Strasse');

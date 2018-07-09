@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stammdaten extends Model
 {
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'stammdaten_user', 'user_id', 'stammdaten_id');
-    }
+
     protected $fillable = [
-        'Vorname', 'Nachname', 'Strasse', 'Hausnummer', 'Postleitzahl', 'Ort', 'Geburtsdatum','Telefonnummer',
+      'user_id', 'Vorname', 'Nachname', 'Strasse', 'Hausnummer', 'Postleitzahl', 'Ort', 'Geburtsdatum','Telefonnummer',
         'IBAN','BIC',
     ];
+
+    public function user(){
+
+        return $this->belongsTo('User');
+    }
+
 }

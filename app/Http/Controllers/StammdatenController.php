@@ -52,7 +52,8 @@ class StammdatenController extends Controller
         ]);
 
 
-        $stammdaten=Stammdaten::create([
+        Stammdaten::create([
+            'user_id'=>$user->id,
             'Vorname' => $request['Vorname'],
             'Nachname' => $request['Nachname'],
             'Strasse' => $request['Strasse'],
@@ -65,7 +66,7 @@ class StammdatenController extends Controller
             'BIC' => $request['BIC'],
 
         ]);
-        $stammdaten->users()->attach($user);
+
         return redirect('stammdaten');
 
 
@@ -149,9 +150,9 @@ class StammdatenController extends Controller
      */
     public function destroy($id)
     {
-        $benutzers = User:: where('id', $id);
-        $benutzers->delete();
-        $users = Stammdaten::where('id', $id);
+        $users = User:: where('id', $id);
+        $users->delete();
+        $users = Stammdaten::where('user_id', $id);
         $users->delete();
 
         /**
