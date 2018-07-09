@@ -93,14 +93,10 @@ class StammdatenController extends Controller
      */
 
 
-        public function edit($id)
+        public function edit( $user)
     {
-        // get the nerd
-        $aktuelleStammdaten= Stammdaten::find($id);
-        $aktuellerUser = User::find($id);
-        // show the edit form and pass the nerd
-        return View::make('stammdaten.edit')
-            ->with('User', $aktuellerUser, $aktuelleStammdaten, $id);
+        return view('benutzerverwaltung.edit',compact( 'user', $user));
+
     }
 
 
@@ -111,9 +107,38 @@ class StammdatenController extends Controller
      * @param  \App\stammdaten  $stammdaten
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, stammdaten $stammdaten)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+
+            'role'=> 'role',
+            'name' => 'name',
+            'email' => 'email',
+            'password' => bcrypt('password'),
+
+            'Vorname'=> 'Vorname',
+            'Nachname' => 'Nachname',
+            'Strasse' => 'Strasse',
+            'Hausnummer' => 'Hausnummer',
+            'Postleitzahl' => 'Postleitzahl',
+            'Ort' => 'Ort',
+            'Geburtsdatum' => 'Geburtsdatum',
+            'Telefonnummer' => 'Telefonnummer',
+            'IBAN' => 'IBAN',
+            'BIC' => 'BIC',
+        ]);
+
+        $benutzers = User::find($id);
+        $benutzersUpdate = $request->all();
+        $benutzers->update($benutzersUpdate);
+
+        $users = User::find($id);
+        $usersUpdate = $request->all();
+        $users->update($usersUpdate);
+
+
+
+        return redirect('stammdaten');
     }
 
     /**
@@ -124,7 +149,7 @@ class StammdatenController extends Controller
      */
     public function destroy($id)
     {
-        $benutzers = Benutzer::find($id);
+        $benutzers = User::find($id);
         $benutzers->delete();
         $users = User::find($id);
         $users->delete();

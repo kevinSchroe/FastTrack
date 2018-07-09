@@ -12,8 +12,9 @@
             <th>ID</th>
             <th>e-Mail</th>
             <th>name</th>
-            <th>ID</th>
             <th>Rolle</th>
+
+            <th>ID</th>
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Straße</th>
@@ -35,9 +36,9 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name}}</td>
                     <td>{{ $user->email}}</td>
+                    <td>{{ $user->role }}</td>
 
                 <td>{{ $stammdaten->id }}</td>
-                    <td>{{ $stammdaten->role }}</td>
                 <td>{{ $stammdaten->Vorname}}</td>
                 <td>{{ $stammdaten->Nachname}}</td>
                 <td>{{ $stammdaten->Strasse}}</td>
@@ -49,7 +50,11 @@
                 <td>{{ $stammdaten->BIC}}</td>
                 <td>
 
-                    <a class="btn btn-small btn-info" href="{{ URL::to('stammdaten/edit' ,$stammdaten['id'] ) }}">Edit</a>
+                    <a href="{{ route('stammdaten.edit', $stammdaten->id) }}" class="btn btn-success">Edit</a>
+
+                    {!! Form::open(['method'=>'delete', 'route'=>['stammdaten.destroy', $stammdaten->id]]) !!}
+                    {!! Form::submit('Delete', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+                    {!! Form::close() !!}
 
 
 

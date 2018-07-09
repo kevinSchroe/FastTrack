@@ -18,9 +18,10 @@
                             <div class="form-group">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Rolle') }}</label>
                                 <div class="col-md-6">
-                                {{ Form::select('role', array('0' => 'Wähle eine Rolle', 'admin' => 'Admin', 'fahrlehrer' => 'Fahrlehrer', 'fahrschueler' => 'Fahrschueler'), old('stammdaten'), array('class' => 'form-control')) }}
 
+                                {{ Form::select ('role', array('0' => 'Wähle eine Rolle', 'admin' => 'Admin', 'fahrlehrer' => 'Fahrlehrer', 'fahrschueler' => 'Fahrschueler'), old('stammdaten'), array('class' => 'form-control' )) }}
                                 </div>
+
                             </div>
 
                             <div class="form-group row">
