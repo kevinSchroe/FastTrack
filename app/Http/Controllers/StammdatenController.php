@@ -149,10 +149,15 @@ class StammdatenController extends Controller
      */
     public function destroy($id)
     {
-        $benutzers = User::find($id);
+        $benutzers = User:: where('id', $id);
         $benutzers->delete();
-        $users = User::find($id);
+        $users = Stammdaten::where('id', $id);
         $users->delete();
+
+        /**
+         * Stammdaten_User tabelle eintrag löschen
+         */
+
         return redirect('stammdaten');
     }
 }
