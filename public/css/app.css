@@ -5967,7 +5967,12 @@ button.close {
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: .3rem
 }
+.container_index{
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
 
+}
 .popover,
 .popover .arrow {
     position: absolute;

@@ -5,7 +5,9 @@
 @stop
 
 @section('content')
-    <a href="stammdaten/create" class="btn btn-primary">Add new</a>
+
+    <a href="stammdaten/create" class="btn btn-primary">Neuer Benutzer</a>
+    <div class="container_index">
     <table class="table table-bordered table-responsive" style="margin-top: 10px;">
         <thead>
         <tr>
@@ -63,6 +65,7 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 
 
 @stop
