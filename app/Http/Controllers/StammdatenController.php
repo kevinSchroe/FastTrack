@@ -52,7 +52,7 @@ class StammdatenController extends Controller
         ]);
 
 
-        Stammdaten::create([
+        $stammdaten=Stammdaten::create([
             'Vorname' => $request['Vorname'],
             'Nachname' => $request['Nachname'],
             'Strasse' => $request['Strasse'],
@@ -65,7 +65,7 @@ class StammdatenController extends Controller
             'BIC' => $request['BIC'],
 
         ]);
-
+        $stammdaten->users()->attach($user);
         return redirect('stammdaten');
 
 
