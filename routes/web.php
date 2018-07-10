@@ -28,6 +28,4 @@ Route::get('/admin_dashboard', 'AdminController@index')->name('admin_dashboard')
 Route::get('/example', 'ExampleController@index');
 Route::post('/example', 'ExampleController@example');
 
-Route::resource ('/stammdaten', 'StammdatenController');
-
-
+Route::resource('/stammdaten', 'StammdatenController');

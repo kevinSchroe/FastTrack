@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\stammdaten;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Validator;
-
 
 
 class StammdatenController extends Controller
@@ -20,7 +20,7 @@ class StammdatenController extends Controller
      */
     public function index()
     {
-        $stammdatens =Stammdaten::all();
+        $stammdatens = Stammdaten::all();
         $benutzers = User::all();
 
         return view('benutzerverwaltung.index', compact('stammdatens', 'benutzers'));
@@ -40,7 +40,7 @@ class StammdatenController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -48,7 +48,7 @@ class StammdatenController extends Controller
 
     {
         $user = User::create([
-            'role'=> $request['role'],
+            'role' => $request['role'],
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
@@ -56,7 +56,7 @@ class StammdatenController extends Controller
 
 
         Stammdaten::create([
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'Vorname' => $request['Vorname'],
             'Nachname' => $request['Nachname'],
             'Strasse' => $request['Strasse'],
@@ -69,91 +69,85 @@ class StammdatenController extends Controller
             'BIC' => $request['BIC'],
 
 
-
         ]);
 
         return redirect('stammdaten');
 
 
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\stammdaten  $stammdaten
+     * @param  \App\stammdaten $stammdaten
      * @return \Illuminate\Http\Response
      */
     public function show(stammdaten $stammdaten)
     {
-        $data=Stammdaten::select("select * from stammdaten");
-    print_r($data);
+        $data = Stammdaten::select("select * from stammdaten");
+        print_r($data);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\stammdaten  $stammdaten
+     * @param  \App\stammdaten $stammdaten
      * @return \Illuminate\Http\Response
      */
 
 
-        public function edit( $id)
+    public function edit($id)
     {
         $user = User::find($id);
-        return view('benutzerverwaltung.edit', compact('user', 'stammdatena'));
-
+        return view('benutzerverwaltung.edit', compact('user', 'stammdaten'));
     }
-
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\stammdaten  $stammdaten
+     * @param  \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
+        $stammdaten = Stammdaten::where('user_id', '=', $id)->get()[0];
         $this->validate($request, [
 
-            'role'          => 'role',
-            'name'          => 'name',
-            'email'         => 'email',
-            'password'      => bcrypt('password'),
 
-            'Vorname'       => 'Vorname',
-            'Nachname'      => 'Nachname',
-            'Strasse'       => 'Strasse',
-            'Hausnummer'    => 'Hausnummer',
-            'Postleitzahl'  => 'Postleitzahl',
-            'Ort'           => 'Ort',
-            'Geburtsdatum'  => 'Geburtsdatum',
-            'Telefonnummer' => 'Telefonnummer',
-            'IBAN'          => 'IBAN',
-            'BIC'           => 'BIC',
+            'name' => 'required',
+            'role' => 'required',
+
+            'Vorname' => 'required',
+            'Nachname' => 'required',
+            'Strasse' => 'required',
+            'Hausnummer' => 'required',
+            'Postleitzahl' => 'required',
+            'Ort' => 'required',
+            'Geburtsdatum' => 'required',
+            'Telefonnummer' => 'required',
+            'IBAN' => 'required',
+            'BIC' => 'required',
         ]);
 
-        $benutzers = User::find($id);
-        $benutzersUpdate = $request->all();
-        $benutzers->update($benutzersUpdate);
-        $users = User::find($id);
-        $usersUpdate = $request->all();
-        $users->update($usersUpdate);
+        $stammdaten->update($request->all());
+        $stammdaten->user->update($request->all());
 
         return redirect('stammdaten');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\stammdaten  $stammdaten
+     * @param  \App\stammdaten $stammdaten
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $users = User:: where('id', $id);
-        $users->delete();
-        $users = Stammdaten::where('user_id', $id);
-        $users->delete();
+        $user = User::find($id);
+        $user->stammdaten->delete();
+        $user->delete();
 
         /**
          * Stammdaten_User tabelle eintrag löschen
