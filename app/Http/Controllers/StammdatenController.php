@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\stammdaten;
 use App\User;
 use Illuminate\Http\Request;
+use Validator;
 
 
 
@@ -43,6 +44,8 @@ class StammdatenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
+
     {
         $user = User::create([
             'role'=> $request['role'],
@@ -65,15 +68,14 @@ class StammdatenController extends Controller
             'IBAN' => $request['IBAN'],
             'BIC' => $request['BIC'],
 
+
+
         ]);
 
         return redirect('stammdaten');
 
 
     }
-
-
-
     /**
      * Display the specified resource.
      *
@@ -94,9 +96,10 @@ class StammdatenController extends Controller
      */
 
 
-        public function edit( $user)
+        public function edit( $id)
     {
-        return view('benutzerverwaltung.edit',compact( 'user', $user));
+        $user = User::find($id);
+        return view('benutzerverwaltung.edit', compact('user', 'stammdatena'));
 
     }
 
@@ -112,32 +115,29 @@ class StammdatenController extends Controller
     {
         $this->validate($request, [
 
-            'role'=> 'role',
-            'name' => 'name',
-            'email' => 'email',
-            'password' => bcrypt('password'),
+            'role'          => 'role',
+            'name'          => 'name',
+            'email'         => 'email',
+            'password'      => bcrypt('password'),
 
-            'Vorname'=> 'Vorname',
-            'Nachname' => 'Nachname',
-            'Strasse' => 'Strasse',
-            'Hausnummer' => 'Hausnummer',
-            'Postleitzahl' => 'Postleitzahl',
-            'Ort' => 'Ort',
-            'Geburtsdatum' => 'Geburtsdatum',
+            'Vorname'       => 'Vorname',
+            'Nachname'      => 'Nachname',
+            'Strasse'       => 'Strasse',
+            'Hausnummer'    => 'Hausnummer',
+            'Postleitzahl'  => 'Postleitzahl',
+            'Ort'           => 'Ort',
+            'Geburtsdatum'  => 'Geburtsdatum',
             'Telefonnummer' => 'Telefonnummer',
-            'IBAN' => 'IBAN',
-            'BIC' => 'BIC',
+            'IBAN'          => 'IBAN',
+            'BIC'           => 'BIC',
         ]);
 
         $benutzers = User::find($id);
         $benutzersUpdate = $request->all();
         $benutzers->update($benutzersUpdate);
-
         $users = User::find($id);
         $usersUpdate = $request->all();
         $users->update($usersUpdate);
-
-
 
         return redirect('stammdaten');
     }

@@ -1,31 +1,94 @@
 @extends('layouts.app')
 
-<!-- Diesse Seite dient zur Registrierung der Fahrschüler und erfasst die Daten, welche in der Datenbank gespeichert werden -->
+@section('header')
+
+@stop
 
 @section('content')
-    <h1>Edit Task</h1>
-    <hr>
-    <form action="{{url('stammdaten', [$user->id])}}" method="POST">
-        <input type="hidden" name="_method" value="PUT">
-        {{ csrf_field() }}
-        <div class="form-group">
-            <label for="name">name</label>
-            <input type="text" value="{{$user->name}}" class="form-control" id="name"  name="name" >
+    <h3>Benutzer bearbeiten</h3>
+    {!! Form::model($user, ['route'=>['stammdaten.update', $user->id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
+    <div class="form-group">
+        {!! Form::label('name', 'Name', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('name', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('name')?$errors->first('name'):'' !!}
         </div>
-        <div class="form-group">
-            <label for="email">email</label>
-            <input type="text" value="{{$user->email}}" class="form-control" id="email" name="description" >
+    </div>
+    <div class="form-group">
+        {!! Form::label('role', 'Rolle', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('role', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('role')?$errors->first('role'):'' !!}
         </div>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
+    <div class="form-group">
+        {!! Form::label('Vorname', 'Vorname', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('Vorname', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('Vorname')?$errors->first('Vorname'):'' !!}
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('Nachname', 'Nachname', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('Nachname', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('Nachname')?$errors->first('Nachname'):'' !!}
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('Strasse', 'Strasse', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('Strasse', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('Strasse')?$errors->first('Strasse'):'' !!}
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('Hausnummer', 'Hausnummer', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('Hausnummer', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('Hausnummer')?$errors->first('Hausnummer'):'' !!}
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('Postleitzahl', 'Postleitzahl', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('Postleitzahl', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('Postleitzahl')?$errors->first('Postleitzahl'):'' !!}
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('Ort', 'Ort', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('Ort', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('Ort')?$errors->first('Ort'):'' !!}
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('Geburtsdatum', 'Geburtsdatum', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('Geburtsdatum', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('Geburtsdatum')?$errors->first('Geburtsdatum'):'' !!}
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('IBAN', 'IBAN', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('IBAN', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('IBAN')?$errors->first('IBAN'):'' !!}
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('BIC', 'BIC', ['class'=>'control-label col-md-2']) !!}
+        <div class="col-md-10">
+            {!! Form::text('BIC', null, ['class'=>'form-control']) !!}
+            {!! $errors->has('BIC')?$errors->first('BIC'):'' !!}
+        </div>
+    </div>
 
-@endsection
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            {!! Form::submit('Speichern', ['class'=>'btn btn-primary']) !!}
+        </div>
+    </div>
+    {!! Form::close() !!}
+@stop

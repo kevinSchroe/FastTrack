@@ -41,15 +41,15 @@
                     <td>{{ $user->role }}</td>
 
 
-                    <td>{{ $user->Vorname}}</td>
-                    <td>{{ $user->Nachname}}</td>
-                    <td>{{ $user->Strasse}}</td>
-                    <td>{{ $user->Hausnummer }}</td>
-                    <td>{{ $user->Postleitzahl}}</td>
-                    <td>{{ $user->Ort}}</td>
-                    <td>{{ $user->Geburtsdatum}}</td>
-                    <td>{{ $user->IBAN}}</td>
-                    <td>{{ $user->BIC}}</td>
+                    <td>{{ $user->stammdaten->Vorname}}</td>
+                    <td>{{ $user->stammdaten->Nachname}}</td>
+                    <td>{{ $user->stammdaten->Strasse}}</td>
+                    <td>{{ $user->stammdaten->Hausnummer }}</td>
+                    <td>{{ $user->stammdaten->Postleitzahl}}</td>
+                    <td>{{ $user->stammdaten->Ort}}</td>
+                    <td>{{ $user->stammdaten->Geburtsdatum}}</td>
+                    <td>{{ $user->stammdaten->IBAN}}</td>
+                    <td>{{ $user->stammdaten->BIC}}</td>
                     <td>
 
                         <a href="{{ route('stammdaten.edit', $user->id) }}" class="btn btn-success">Edit</a>
