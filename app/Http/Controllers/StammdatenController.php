@@ -6,7 +6,9 @@ use App\stammdaten;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Validator;
+use Gate;
 
 
 class StammdatenController extends Controller
@@ -23,7 +25,14 @@ class StammdatenController extends Controller
         $stammdatens = Stammdaten::all();
         $benutzers = User::all();
 
-        return view('benutzerverwaltung.index', compact('stammdatens', 'benutzers'));
+        $user = Auth::user();
+
+        if (Gate::allows('isadmin')) {
+            return view('benutzerverwaltung.index', compact('stammdatens', 'benutzers'));
+        }else {
+            abort(401, 'This action is unauthorized.');
+        }
+
 
     }
 

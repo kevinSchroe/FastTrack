@@ -15,7 +15,7 @@
                             @csrf
 
 
-                            <div class="form-group">
+                            <div class="form-group row" >
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Rolle') }}</label>
                                 <div class="col-md-6">
 

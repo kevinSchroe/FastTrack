@@ -1,10 +1,8 @@
 @extends('layouts.app')
 
-@section('header')
-
-@stop
 
 @section('content')
+    <div class="container">
     <h3>Benutzer bearbeiten</h3>
     {!! Form::model($user, ['route'=>['stammdaten.update', $user->id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
     <div class="form-group">
@@ -97,5 +95,6 @@
             {!! Form::submit('Speichern', ['class'=>'btn btn-primary']) !!}
         </div>
     </div>
+</div>
     {!! Form::close() !!}
 @stop

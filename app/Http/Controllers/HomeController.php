@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Gate;
 
 class HomeController extends Controller
 {
@@ -25,6 +27,7 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
+
     public function home()
     {
         return view('home');
@@ -32,6 +35,15 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard');
+
+        $user = Auth::user();
+
+        if (Gate::allows('isadmin')) {
+            return view('admin.admin_dashboard');
+        } else {
+            return view('dashboard');
+        }
+
     }
+
 }
