@@ -2,12 +2,12 @@
 @extends('layouts.app')
 @section('content')
 
-    <body>
+    <body xmlns="http://www.w3.org/1999/html">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
@@ -15,12 +15,35 @@
                 </div>
             @endif
 
-            <div class="content">
+    <article>
+            <div class="container">
 
+                <div class="container-fluid bg-3 text-center">
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h1>FLEXIBEL <br> </h1>
+
+                            <p> Du kannst deine Fahrstunden bis 12 Stundne vorher kostenlos umbuchen</p>
+                        </div>
+                        <div class="col-sm-3-w">
+                            <h1>EXELLENTE AUSBILDUNG</h1>
+                            <p class="card-text">Du fährst nur mit von uns geprüften und zertifizierten Fahrlehrern </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <h1>GÜNSTIG</h1>
+                            <p class="card-text">Du kannst zwichen verschiedenen Paketen wählen und hast immer die Kosten immer voll unter Kontrolle </p>
+                        </div>
+                        <div class="col-sm-3-w">
+                            <h1>Unabhängig</h1>
+                            <p class="card-text">Absolviere deine Theoriewann und wo du willst, ganz einfach am Laptop oder Smartphone </p>
+                        </div>
+                    </div>
+                </div><br>
             </div>
-                // Anbindung des Google-Kalenders  vorerst nur für Testzwecke
-                <p dir="ltr">&nbsp;<iframe align="left" frameborder="0" height="600" sandbox="allow-same-origin allow-scripts" scrolling="no" src="https://calendar.google.com/calendar/embed?src=b7in3rlvlg09etmlc50nvskt8g%40group.calendar.google.com&amp;ctz=Europe/Berlin" width="845"></iframe></p>
+
+    </article>
         </div>
     </body>
-</html>
+
 @endsection
