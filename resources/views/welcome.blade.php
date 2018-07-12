@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-sm-3-w">
                             <h1>Unabhängig</h1>
-                            <p class="card-text">Absolviere deine Theoriewann und wo du willst, ganz einfach am Laptop oder Smartphone </p>
+                            <p class="card-text">Absolviere deine Theoriewann und wo du willst,  ganz einfach am Laptop oder Smartphone </p>
                         </div>
                     </div>
                 </div><br>
