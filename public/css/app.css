@@ -1034,6 +1034,17 @@ pre code {
         flex: 0 0 25%;
         max-width: 25%
     }
+    .col-sm-3 {
+        margin-top: 2rem;
+
+        padding-right: 1rem;
+        padding-left: 1rem;
+        background: red;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%
+    }
     .col-sm-4 {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 33.33333333%;
@@ -4689,7 +4700,7 @@ tbody.collapse.show {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: red;
+    background-color: white;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem
