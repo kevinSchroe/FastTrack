@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Role;
+use App\Stammdaten;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -50,6 +51,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
@@ -69,14 +71,31 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
+            'role' => 'fahrschueler',
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        $user
-            ->roles()
-            ->attach(Role::where('name', 'fahrschueler')->first());
+
+
+         Stammdaten::create([
+            'user_id' => $user->id,
+            'Vorname' => $data['Vorname'],
+            'Nachname' => $data['Nachname'],
+            'Strasse' => $data['Strasse'],
+            'Hausnummer' => $data['Hausnummer'],
+            'Postleitzahl' => $data['Postleitzahl'],
+            'Ort' => $data['Ort'],
+            'Geburtsdatum' => $data['Geburtsdatum'],
+            'Telefonnummer' => $data['Telefonnummer'],
+            'IBAN' => $data['IBAN'],
+            'BIC' => $data['BIC'],
+
+        ]);
+
 
         return $user;
     }
+
+
 }

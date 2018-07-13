@@ -400,6 +400,7 @@ h6 {
     color: inherit
 }
 
+
 .h1,
 h1 {
     font-size: 2.25rem
@@ -596,7 +597,8 @@ pre code {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
-    margin-left: auto
+    margin-left: auto;
+
 }
 
 @media (min-width:576px) {
@@ -1011,6 +1013,33 @@ pre code {
         max-width: 16.66666667%
     }
     .col-sm-3 {
+        margin-top: 2rem;
+
+        padding-right: 1rem;
+        padding-left: 1rem;
+        background: red;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%
+    }
+    .col-sm-3-w {
+        margin-top: 2rem;
+
+        padding-right: 1rem;
+        padding-left: 1rem;
+        background: white;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%
+    }
+    .col-sm-3 {
+        margin-top: 2rem;
+
+        padding-right: 1rem;
+        padding-left: 1rem;
+        background: red;
         -webkit-box-flex: 0;
         -ms-flex: 0 0 25%;
         flex: 0 0 25%;
@@ -4671,7 +4700,7 @@ tbody.collapse.show {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: white;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem
@@ -5967,7 +5996,12 @@ button.close {
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: .3rem
 }
+.container_index{
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
 
+}
 .popover,
 .popover .arrow {
     position: absolute;
@@ -6435,10 +6469,10 @@ button.bg-danger:hover {
 }
 
 .bg-light {
-    background-color: white!important;
+
     border-color: black;
     border-width: 3px;
-    border-style: solid;
+    border-style: none;
 }
 
 a.bg-light:focus,
