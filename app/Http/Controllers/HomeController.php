@@ -46,4 +46,16 @@ class HomeController extends Controller
 
     }
 
+    public function videos()
+    {
+        $user = Auth::user();
+
+        if (Gate::allows('isadmin')) {
+            return view('videos');
+        } else {
+            return view('videos');
+        }
+
+    }
+
 }
