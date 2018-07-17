@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="container">
+    <div class="container">
     <h3>Benutzer bearbeiten</h3>
     {!! Form::model($user, ['route'=>['stammdaten.update', $user->id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
     <div class="form-group">
@@ -96,6 +97,7 @@
         </div>
     </div>
 </div>
+    </div>
     {!! Form::close() !!}
 @endsection
 

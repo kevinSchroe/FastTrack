@@ -98,7 +98,7 @@ class StammdatenController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the for editing the specified resource.
      *
      * @param  \App\stammdaten $stammdaten
      * @return \Illuminate\Http\Response

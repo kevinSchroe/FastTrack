@@ -24,9 +24,7 @@ Auth::routes();
 Route::get('/welcome', 'HomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
-Route::get('/videos', 'HomeController@videos')->name('videos');
 Route::get('/admin_dashboard', 'AdminController@index')->name('admin_dashboard');
-
 
 Route::get('/example', 'ExampleController@index');
 Route::post('/example', 'ExampleController@example');
