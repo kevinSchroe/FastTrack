@@ -43,7 +43,7 @@
             <a class="navbar-brand" href="{{ url('dashboard') }}">
                 LIVESTREAM
             </a>
-            <a class="navbar-brand" href="{{ url('dashboard') }}">
+            <a class="navbar-brand" href="{{ url('videos') }}">
                 VIDEOS
             </a>
             <a class="navbar-brand" href="{{ url('dashboard') }}">
