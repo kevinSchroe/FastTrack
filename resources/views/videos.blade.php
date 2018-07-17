@@ -13,6 +13,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+                        <div class="container_index">
 
 
                             <div><h3>Verkehrszeichen und Verkehrseinrichtungen</h3></div>
@@ -33,7 +34,7 @@
 
 
                     </div>
-
+                    </div>
 
                 </div>
             </div>
