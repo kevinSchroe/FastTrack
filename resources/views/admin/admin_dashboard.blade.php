@@ -14,7 +14,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="fragenkatalog">
                                 <span data-feather="file"></span>
                                 Fragenverwaltung
                             </a>
@@ -26,9 +26,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="fahrlehrerVerwaltung">
                                 <span data-feather="users"></span>
-                                BlaBlaBla
+                                Fahrlehrer-Übersicht Verwaltung
                             </a>
                         </li>
                         <li class="nav-item">

@@ -54,4 +54,16 @@ class HomeController extends Controller
 
     }
 
+    public function testfragen()
+    {
+        $user = Auth::user();
+
+        if (Gate::allows('isadmin')) {
+            return view('testragen.index');
+        } else {
+            return view('testfragen');
+        }
+
+    }
+
 }
