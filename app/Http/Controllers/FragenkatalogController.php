@@ -91,7 +91,7 @@ class FragenkatalogController extends Controller
      */
     public function edit($fragen_id)
     {
-        $fragenkatalog = Fragenkatalog::find($fragen_id);
+        $fragenkatalog = Fragenkatalog::where('fragen_id', '=', $fragen_id);
         return view('fragen.edit', compact('fragen_id', 'fragenkatalog'));
     }
 
@@ -130,7 +130,7 @@ class FragenkatalogController extends Controller
      */
     public function destroy($fragen_id)
     {
-        $fragenkatalog = fragenkatalog::find($fragen_id);
+        $fragenkatalog = fragenkatalog::where('fragen_id', '=', $fragen_id);
         $fragenkatalog->delete();
 
         /**
