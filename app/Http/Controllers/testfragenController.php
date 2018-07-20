@@ -11,13 +11,9 @@ class testfragenController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
 
-        if (Gate::allows('isadmin')) {
             return view(  'testfragen.index');
-        }else {
-            abort(401, 'This action is unauthorized.');
-        }
+
     }
 
     public function vorfahrt(Fragenkatalog $fragenkatalogs)

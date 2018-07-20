@@ -26,12 +26,13 @@ Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::get('/videos', 'HomeController@videos')->name('videos');
 Route::get('/admin_dashboard', 'AdminController@index')->name('admin_dashboard');
-Route::get('/testfragen', 'HomeController@home')->name('testfragen');
+Route::get('/testfragen', 'testfragencontroller@index')->name('testfragen');
 
 
 Route::resource('/stammdaten', 'StammdatenController');
 Route::resource('/fragenkatalog', 'fragenkatalogController');
 Route::resource('/fahrlehrerVerwaltung', 'fahrlehrerVerwaltungController');
+
 
 
 Route::get('testfragen/vorfahrt', 'testfragenController@Vorfahrt');

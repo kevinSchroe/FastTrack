@@ -158,6 +158,8 @@ class StammdatenController extends Controller
         $user->stammdaten->delete();
         $user->delete();
 
+       // $user->fahrlehrer_verwaltung->delete();
+
         /**
          * Stammdaten_User tabelle eintrag löschen
          */

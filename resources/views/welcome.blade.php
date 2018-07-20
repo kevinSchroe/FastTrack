@@ -24,7 +24,7 @@
                         <div class="col-sm-3">
                             <h1>FLEXIBEL <br> </h1>
 
-                            <p> Du kannst deine Fahrstunden bis 12 Stundne vorher kostenlos umbuchen</p>
+                            <p> Du kannst deine Fahrstunden bis 12 Stunden vorher kostenlos umbuchen</p>
                         </div>
                         <div class="col-sm-3-w">
                             <h1>EXELLENTE AUSBILDUNG</h1>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-sm-3">
                             <h1>GÜNSTIG</h1>
-                            <p class="card-text">Du kannst zwichen verschiedenen Paketen wählen und hast immer die Kosten immer voll unter Kontrolle </p>
+                            <p class="card-text">Du kannst zwischen verschiedenen Paketen wählen und hast immer die Kosten immer voll unter Kontrolle </p>
                         </div>
                         <div class="col-sm-3-w">
                             <h1>Unabhängig</h1>
