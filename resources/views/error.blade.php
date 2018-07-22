@@ -9,11 +9,11 @@
                     <div style="text-align: center;">
                         <img src="ups.jpg" width="185" height="259" >
 
-                    <h1> Uuups da ist was schief gelaufen…</h1>
-                    <h4>Diese Seite wurde leider nicht gefunden.</h4>
+                    <h1 style="background-color: white"> <b> Uuups da ist was schief gelaufen…</b> </h1>
+                    <h4 style="background-color: white">Diese Seite wurde leider nicht gefunden.</h4>
 
                         <div style="text-align: center">
-                            <a href="{{ url('dashboard') }}" class="btn btn-info" role="button">Zurück zum Dashboard</a>
+                            <a href="{{ url('dashboard') }}" class="btn btn-success" role="button">Zurück zum Dashboard</a>
 
 
                         </div>

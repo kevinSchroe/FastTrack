@@ -34,7 +34,11 @@ class AdminController extends Controller
         if (Gate::allows('isadmin')) {
             return view(  'admin.admin_dashboard');
         }else {
-            abort(401, 'This action is unauthorized.');
+            /**
+             * Hier wurde der Standard Error-Handler entfernt und durch deine Error-Seite ersetzt
+             */
+           // abort(401, 'This action is unauthorized.');
+            return view ('error');
         }
 
 

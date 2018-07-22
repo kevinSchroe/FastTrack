@@ -31,6 +31,7 @@ class StammdatenController extends Controller
             return view('benutzerverwaltung.index', compact('stammdatens', 'benutzers'));
         }else {
             abort(401, 'This action is unauthorized.');
+            return view ('error');
         }
 
 
