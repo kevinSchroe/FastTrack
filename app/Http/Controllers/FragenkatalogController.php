@@ -92,7 +92,7 @@ class FragenkatalogController extends Controller
     public function edit($fragen_id)
     {
         $fragenkatalog = Fragenkatalog::where('fragen_id', '=', $fragen_id);
-        return view('fragen.edit', compact('fragen_id', 'fragenkatalog'));
+        return view('Fragen.edit', compact('fragenkatalog'));
     }
 
     /**

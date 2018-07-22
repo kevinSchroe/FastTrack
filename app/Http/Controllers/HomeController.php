@@ -27,6 +27,10 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
+    public function error()
+    {
+        return view('error');
+    }
 
     public function home()
     {
@@ -48,10 +52,7 @@ class HomeController extends Controller
 
     public function videos()
     {
-
             return view('videos');
-
-
     }
 
     public function testfragen()

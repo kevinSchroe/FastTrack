@@ -22,6 +22,7 @@ Auth::routes();
 
 
 Route::get('/welcome', 'HomeController@index')->name('welcome');
+Route::get('/error', 'HomeController@error')->name('error');
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::get('/videos', 'HomeController@videos')->name('videos');
@@ -29,8 +30,9 @@ Route::get('/admin_dashboard', 'AdminController@index')->name('admin_dashboard')
 Route::get('/testfragen', 'testfragencontroller@index')->name('testfragen');
 
 
+
 Route::resource('/stammdaten', 'StammdatenController');
-Route::resource('/fragenkatalog', 'fragenkatalogController');
+Route::resource('/fragenkatalog', 'FragenkatalogController');
 Route::resource('/fahrlehrerVerwaltung', 'fahrlehrerVerwaltungController');
 
 
