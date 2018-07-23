@@ -10,36 +10,48 @@
             {{Session::get('message')}}
         </div>
     @endif
-    <a href="fahrlehrerVerwaltung/create" class="btn btn-primary">Neuen Fahrlehrer der Übersicht hinzufügen</a>
+
     <div class="container_index">
         <table class="table table-bordered table-responsive" style="margin-top: 10px;">
             <thead>
             <tr>
-                <th>Fahrlehrer-ID</th>
+                <th>ID</th>
                 <th>Vorname</th>
                 <th>Nachname</th>
-                <th>Auto-Marke</th>
+                <th>Geburtsdatum</th>
+                <th>Einsatzgebiet</th>
+                <th>Fahrlehrer seit...</th>
+                <th>Automarke</th>
+                <th>Baujahr</th>
+                <th>Kennzeichen</th>
+                <th>Beschreibung</th>
+
+
             </tr>
             </thead>
             <tbody>
 
 
-            @foreach($fahrlehrer_verwaltungs as $fahrlehrer_verwaltung)
+            @foreach($fahrlehrer_verwaltungs as $benutzer)
 
                 <tr>
 
-                    <td>{{ $fahrlehrer_verwaltung->fahrlehrer_id }}</td>
-                    <td>{{ $fahrlehrer_verwaltung->fahrlehrer_vorname }}</td>
-                    <td>{{ $fahrlehrer_verwaltung->fahrlehrer_nachname }}</td>
-                    <td>{{ $fahrlehrer_verwaltung->auto_marke }}</td>
+                    <td>{{ $benutzer->id }}</td>
+                    <td>{{ $benutzer->stammdaten->Vorname }}</td>
+                    <td>{{ $benutzer->stammdaten->Nachname }}</td>
+                    <td>{{ $benutzer->stammdaten->Geburtsdatum }}</td>
+
+                    <td>{{ $user->fahrlehrer_verwaltungs->einsatzgebiet }}</td>
+                    <td>{{ $user->fahrlehrer_verwaltungs->fahrlehrer_seit }}</td>
+                    <td>{{ $user->fahrlehrer_verwaltungs->automarke }}</td>
+                    <td>{{ $user->fahrlehrer_verwaltungs->auto_baujahr }}</td>
+                    <td>{{ $user->fahrlehrer_verwaltungs->kennzeichen }}</td>
+                    <td>{{ $user->fahrlehrer_verwaltungs->beschreibung }}</td>
+
+
 
                     <td>
-
-                        <a href="{{ route('fahrlehrerVerwaltung.edit', $fahrlehrer_verwaltung->fahrlehrer_id) }}" class="btn btn-success">Bearbeiten</a>
-                    <td> {!! Form::open(['method'=>'delete', 'route'=>['fahrlehrerVerwaltung.destroy', $fahrlehrer_verwaltung->fahrlehrer_id]]) !!}
-                        {!! Form::submit('Löschen', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
-                        {!! Form::close() !!}
-                    </td>
+                        <a href="{{ route('fahrlehrerVerwaltung.edit', $user->id) }}" class="btn btn-success">Bearbeiten</a>
                 </tr>
 
 

@@ -8,6 +8,6 @@ class fragenkatalog extends Model
 {
     public $timestamps = false;
     protected $fillable = [
-        'Kategorie', 'frage', 'richtige_antwort', 'erste_falsche_antwort', 'zweite_falsche_antwort',
+        'fragen_id','Kategorie', 'frage', 'richtige_antwort', 'erste_falsche_antwort', 'zweite_falsche_antwort',
     ];
 }
