@@ -14,7 +14,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="testfragen.edit">
+                            <a class="nav-link" href="fragenkatalog">
                                 <span data-feather="file"></span>
                                 Fragenverwaltung
                             </a>
