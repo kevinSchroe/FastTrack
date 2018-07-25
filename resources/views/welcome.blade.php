@@ -2,7 +2,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <body xmlns="http://www.w3.org/1999/html">
+    <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
