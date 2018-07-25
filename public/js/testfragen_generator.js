@@ -112,7 +112,7 @@ function postToDash() {
             method: 'POST',
             data: 'kategorie=' + category + '&antworten=' + questions.length + '&richtig=' + correctAnswers,
             success: function () {
-                window.location = '/dashboard'
+                window.location = '../dashboard'
             }
         }
     );

@@ -35,7 +35,7 @@
             <a class="navbar-brand" href="{{ url('dashboard') }}">
                  DASHBOARD
             </a>
-            <a class="navbar-brand" href="{{ url('dashboard') }}">
+            <a class="navbar-brand" href="{{ url('kalender') }}">
                 KALENDER
             </a>
             <a class="navbar-brand" href="{{ url('dashboard') }}">
