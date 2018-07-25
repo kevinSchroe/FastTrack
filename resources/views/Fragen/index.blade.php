@@ -37,7 +37,7 @@
                     <td><a href="{{ route('fragenkatalog.edit', $fragenkatalog->fragen_id) }}" class="btn btn-success">Bearbeiten</a>
                     </td>
                     <td> {!! Form::open(['method'=>'delete', 'route'=>['fragenkatalog.destroy', $fragenkatalog->fragen_id]]) !!}
-                        {!! Form::submit('Löschen', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+                        {!! Form::submit('Löschen', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Möchten Sie wirklich diese Frage löschen?")']) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>

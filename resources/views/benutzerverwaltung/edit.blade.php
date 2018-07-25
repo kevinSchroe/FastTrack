@@ -6,13 +6,7 @@
     <div class="container">
     <h3>Benutzer bearbeiten</h3>
     {!! Form::model($user, ['route'=>['stammdaten.update', $user->id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
-    <div class="form-group">
-        {!! Form::label('name', 'Name', ['class'=>'control-label col-md-2']) !!}
-        <div class="col-md-10">
-            {!! Form::text('name', null, ['class'=>'form-control']) !!}
-            {!! $errors->has('name')?$errors->first('name'):'' !!}
-        </div>
-    </div>
+
     <div class="form-group">
         {!! Form::label('role', 'Rolle', ['class'=>'control-label col-md-2']) !!}
         <div class="col-md-10">

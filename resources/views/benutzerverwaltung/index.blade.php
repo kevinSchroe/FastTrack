@@ -12,7 +12,6 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
                 <th>e-Mail</th>
                 <th>Rolle</th>
                 <th>Vorname</th>
@@ -34,7 +33,6 @@
 
                 <tr>
                     <td>{{ $user->id }}</td>
-                    <td>{{ $user->name}}</td>
                     <td>{{ $user->email}}</td>
                     <td>{{ $user->role }}</td>
                     <td>{{ $user->stammdaten->Vorname}}</td>
@@ -51,7 +49,7 @@
                         <a href="{{ route('stammdaten.edit', $user->id) }}" class="btn btn-success">Bearbeiten</a>
 
                     <td> {!! Form::open(['method'=>'delete', 'route'=>['stammdaten.destroy', $user->id]]) !!}
-                        {!! Form::submit('Löschen', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+                        {!! Form::submit('Löschen', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Möchten Sie wirklich den Benutzer löschen?")']) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>
