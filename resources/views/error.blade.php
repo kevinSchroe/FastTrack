@@ -7,7 +7,7 @@
                 <div class="card-error" >
 
                     <div style="text-align: center;">
-                        <img src="ups.jpg" width="185" height="259" >
+                        <img src="/FastTrack/resources/assets/img/ups.jpg">
 
                     <h1 style="background-color: white"> <b> Uuups da ist was schief gelaufen…</b> </h1>
                     <h4 style="background-color: white">Diese Seite wurde leider nicht gefunden.</h4>

@@ -16,7 +16,12 @@
             @endif
 
     <article>
-            <div class="container">
+            <div class="container-fluid bg-3 text-center">
+
+                <div>
+                    <img src="/FastTrack/resources/assets/img/LogoFT.png">
+
+                </div>
 
                 <div class="container-fluid bg-3 text-center">
 

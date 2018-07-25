@@ -14,13 +14,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="fragenkatalog">
+                            <a class="nav-link" href="testfragen.edit">
                                 <span data-feather="file"></span>
                                 Fragenverwaltung
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="videoverwaltung">
                                 <span data-feather="shopping-cart"></span>
                                 Videoverwaltung
                             </a>
@@ -28,19 +28,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="fahrlehrerVerwaltung">
                                 <span data-feather="users"></span>
-                                Fahrlehrer-Übersicht Verwaltung
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                BlaBlaBla
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                                BlaBlaBla
+                                Fahrlehrer Verwaltung
                             </a>
                         </li>
                     </ul>

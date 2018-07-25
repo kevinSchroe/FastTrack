@@ -11,7 +11,7 @@
 
         <!-- Übersicht Fragebogen Vorfahrt-->
         <div class = "Fragebogen">
-            <img src = "https://image.gala.de/21462000/uncropped-0-0/79316c272bff76433a49fd074523e51b/Bo/vorfahrtsquiz.jpg"/>
+            <img src = "https://image.gala.de/21462000/uncropped-0-0/79316c272bff76433a49fd074523e51b/Bo/vorfahrtsquiz.jpg" width="185" height="259"/>
             <h3> Testfragen Vorfahrt</h3>
             <p> Score: -- von 3 Fragen richtig</p>
             <!--Buttom zum starten der fragenkatalog, Weiterleitung zu testfragen1.blade.php (Über link)-->

@@ -26,6 +26,10 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
+    public function kalender()
+    {
+        return view('kalender');
+    }
     public function error()
     {
         return view('error');
