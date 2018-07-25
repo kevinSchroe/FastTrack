@@ -73,7 +73,12 @@ section {
 }
 
 body {
-    margin: 0;
+
+    background-image: url('../../resources/assets/img/Background.jpg');
+    background-size: cover;
+    margin: 0px;
+
+
     font-family: Raleway, sans-serif;
     font-size: .9rem;
     font-weight: 400;

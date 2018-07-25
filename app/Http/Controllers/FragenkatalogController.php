@@ -6,7 +6,7 @@ use App\fragenkatalog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-
+use Illuminate\Support\Facades\DB;
 
 
 class FragenkatalogController extends Controller
@@ -21,14 +21,14 @@ class FragenkatalogController extends Controller
         $fragenkatalogs = fragenkatalog::all();
         return view('Fragen.index', compact('fragenkatalogs'));
 
-         $user = Auth::user();
+        $user = Auth::user();
 
-       if (Gate::allows('isadmin')) {
-           return view('Fragen.index', compact('fragenkatalogs'));
-       }else {
-           abort(401, 'This action is unauthorized.');
-           return view('auth.login');
-       }
+        if (Gate::allows('isadmin')) {
+            return view('Fragen.index', compact('fragenkatalogs'));
+        }else {
+            abort(401, 'This action is unauthorized.');
+            return view('auth.login');
+        }
     }
 
     /**
@@ -50,14 +50,14 @@ class FragenkatalogController extends Controller
     public function store(Request $request)
     {
         Fragenkatalog::create([
-                'Kategorie' => $request['Kategorie'],
-                'frage' => $request['frage'],
+            'Kategorie' => $request['Kategorie'],
+            'frage' => $request['frage'],
             'antworten' => $request['antworten'],
             'richtig' => $request['richtig'],
-            ]);
+        ]);
 
         return redirect('fragenkatalog');
-        }
+    }
 
     /**
      * Display the specified resource.
@@ -78,8 +78,15 @@ class FragenkatalogController extends Controller
      */
     public function edit($fragen_id)
     {
-        $fragenkatalog = Fragenkatalog::where('fragen_id', '=', $fragen_id);
-        return view('fragen.edit', compact('fragen_id', 'fragenkatalog'));
+        if (Gate::allows('isadmin')) {
+            $frage = DB::table('fragenkatalogs')
+                ->where('fragen_id', $fragen_id)
+                ->first();
+            return view('Fragen.edit', compact('frage'));
+        } else {
+            abort(401, 'This action is unauthorized.');
+            return view('auth.login');
+        }
     }
 
     /**
@@ -91,6 +98,23 @@ class FragenkatalogController extends Controller
      */
     public function update(Request $request, int $fragen_id)
     {
+
+
+        $this->validate($request, [
+            'frage' => 'required',
+            'antworten' => 'required',
+            'richtig' => 'required',
+        ]);
+
+        DB::table('fragenkatalogs')
+            ->where('fragen_id', '=', $fragen_id)
+            ->update(['frage' => $request['frage'],
+                'antworten' => $request['antworten'],
+                'richtig' => $request['richtig']]);
+
+        return redirect('fragenkatalog');
+
+
         $fragenkatalog = Fragenkatalog::where('fragen_id', '=', $fragen_id)->get()[0];
         $this->validate($request, [
 

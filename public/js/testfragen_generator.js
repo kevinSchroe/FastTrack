@@ -40,7 +40,7 @@ function getTemplate(frage) {
     antworten = frage['antworten'].split(','); //Antworten zu einem Array splitten
     shuffle(antworten);    //Antworten mixen
     return '<div class="container flex flex-column">' +
-        '<div class="title"><h4>' + frage['frage'] + ' ( ' + currentQuestion + ' / ' + questions.length + ' )' + '</h4></div>' +
+        '<div class="title"><h4>' + frage['frage'] + ' ( ' + (currentQuestion + 1) + ' / ' + questions.length + ' )' + '</h4></div>' +
         '<div class="radio">\n' +
         '  <label><input type="radio" name="answer" data-content="' + antworten[0] + '" checked>  ' + antworten[0] + '</label>\n' +
         '</div>\n' +

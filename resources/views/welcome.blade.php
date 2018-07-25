@@ -32,16 +32,16 @@
                             <p> Du kannst deine Fahrstunden bis 12 Stunden vorher kostenlos umbuchen</p>
                         </div>
                         <div class="col-sm-3-w">
-                            <h1>EXELLENTE AUSBILDUNG</h1>
+                            <h1>EXZELLENTE AUSBILDUNG</h1>
                             <p class="card-text">Du fährst nur mit von uns geprüften und zertifizierten Fahrlehrern </p>
                         </div>
                         <div class="col-sm-3">
                             <h1>GÜNSTIG</h1>
-                            <p class="card-text">Du kannst zwischen verschiedenen Paketen wählen und hast immer die Kosten immer voll unter Kontrolle </p>
+                            <p class="card-text">Du kannst zwischen verschiedenen Paketen wählen und hast die Kosten immer voll unter Kontrolle </p>
                         </div>
                         <div class="col-sm-3-w">
                             <h1>Unabhängig</h1>
-                            <p class="card-text">Absolviere deine Theoriewann und wo du willst,  ganz einfach am Laptop oder Smartphone </p>
+                            <p class="card-text">Absolviere deine Theoriewann und wo du willst, ganz einfach am Laptop oder Smartphone </p>
                         </div>
                     </div>
                 </div><br>

@@ -3,63 +3,42 @@
 
 @section('content')
     <div class="container">
-        <h3>Frage bearbeiten</h3>
-        {!! Form::model($fragen_id, ['route'=>['fragenkatalog.update', $fragen_id->fragen_id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
+        <div class="card" style="width: 50%">
+            <div class="card-header">
+                Fragen Bearbeiten
+            </div>
+            <div class="card-body">
+                <div class="container">
 
-    <!-- Was machen ersten beiden divs? -->
-        <div class="form-group">
-            {!! Form::label('frage', 'Frage', ['class'=>'control-label col-md-2']) !!}
-            <div class="col-md-10">
-                {!! Form::text('frage', null, ['class'=>'form-control']) !!}
-                {!! $errors->has('frage')?$errors->first('frage'):'' !!}
-            </div>
-        </div>
-        <div class="form-group">
-            {!! Form::label('Kategorie', 'Kategorie', ['class'=>'control-label col-md-2']) !!}
-            <div class="col-md-10">
-                {!! Form::text('Kategorie', null, ['class'=>'form-control']) !!}
-                {!! $errors->has('Kategorie')?$errors->first('Kategorie'):'' !!}
-            </div>
-        </div>
+                    <!-- if there are creation errors, they will show here -->
 
 
-        <div class="form-group">
-            {!! Form::label('frage', 'frage', ['class'=>'control-label col-md-2']) !!}
-            <div class="col-md-10">
-                {!! Form::text('frage', $fragenkatalog->frage, ['class'=>'form-control']) !!}
-                {!! $errors->has('frage')?$errors->first('frage'):'' !!}
-            </div>
-        </div>
-        <!-- Wie richtige Auswahlmöglichkeit für Select-Felder -->
-        <div class="form-group">
-            {!! Form::label('Kategorie', 'Kategorie', ['class'=>'control-label col-md-2']) !!}
-            <div class="col-md-10">
-                {!! Form::select('Kategorie', $fragenkatalog->Kategorie, ['class'=>'form-control']) !!}
-                {!! $errors->has('Kategorie')?$errors->first('Kategorie'):'' !!}
-            </div>
-        </div>
-        <div class="form-group">
-            {!! Form::label('antworten', 'antworten', ['class'=>'control-label col-md-2']) !!}
-            <div class="col-md-10">
-                {!! Form::text('antworten', $fragenkatalog->richtige_antwort, ['class'=>'form-control']) !!}
-                {!! $errors->has('antworten')?$errors->first('antworten'):'' !!}
-            </div>
-        </div>
-        <div class="form-group">
-            {!! Form::label('richtig', 'richtig', ['class'=>'control-label col-md-2']) !!}
-            <div class="col-md-10">
-                {!! Form::text('richtig', $fragenkatalog->erste_falsche_antwort, ['class'=>'form-control']) !!}
-                {!! $errors->has('richtig')?$errors->first('richtig'):'' !!}
-            </div>
-        </div>
+                    {{ Form::model($frage, array('route' => array('fragenkatalog.update', $frage->fragen_id), 'method' => 'PUT')) }}
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                {!! Form::submit('Speichern', ['class'=>'btn btn-primary']) !!}
+                    <div class="form-group">
+                        {{ Form::label('frage', 'Frage') }}
+                        {{ Form::text('frage', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('antworten', 'Antworten') }}
+                        {{ Form::text('antworten', null, array('class' => 'form-control')) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::label('richtig', 'Richtige Antwort') }}
+                        {{ Form::text('richtig', null, array('class' => 'form-control')) }}
+                    </div>
+
+
+                    {{ Form::submit('Übernehmen', array('class' => 'btn btn-primary')) }}
+
+                    {{ Form::close() }}
+
+                </div>
             </div>
         </div>
     </div>
-    {!! Form::close() !!}
 
 @endsection
 
