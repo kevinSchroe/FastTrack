@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    <script>
+        function getId(url) { //Diese Funktion wird verwendet um normal youtube video URL's in 'embed urls' umzuwandeln
+            var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/; //Regular Expression
+            var match = url.match(regExp);
+
+            if (match && match[2].length == 11) {
+                return match[2];
+            } else {
+                return 'error';
+            }
+        }
+    </script>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -13,25 +25,25 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <div class="container_index">
 
+                    <!-- Query auf die Video DB -->
+                        <?php $videos = DB::table('videos')
+                            ->select('video_url', 'video_title')
+                            ->get();
+                        ?>
+                        <div class="container">
 
-                            <div><h3>Verkehrszeichen und Verkehrseinrichtungen</h3></div>
-                            <div><iframe width="670" height="380" src="https://www.youtube.com/embed/videoseries?list=PLjfE-6IL5cPRlISVjIhxFE2Z9GXfBJsGs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-
-                            <div class ="video"><h3>Vorfahrtsregeln</h3></div>
-                            <div><iframe width="670" height="380" src="https://www.youtube.com/embed/videoseries?list=PLjfE-6IL5cPSty0V83suvtLwBkPfHLE87" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-
-                            <div class ="video"><h3>Besondere Situationen</h3></div>
-                            <div><iframe width="670" height="380" src="https://www.youtube.com/embed/videoseries?list=PLjfE-6IL5cPSQVI1QRQm3l2x8RBNEP8z-" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-
-                            <div class ="video"><h3>Technische Bedingungen</h3></div>
-                            <div><iframe width="670" height="380" src="https://www.youtube.com/embed/videoseries?list=PLjfE-6IL5cPSBszBX8EQ4u1p3iqZRyoiD" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-
-                            <div class ="video"><h3>Straßenverkehrsystem</h3></div>
-                            <div><iframe width="670" height="380" src="https://www.youtube.com/embed/videoseries?list=PLjfE-6IL5cPTtMirFZxPJ2j49jrgxTibj" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-
-
+                            @foreach($videos as $video)
+                                <div><h3>{{$video->video_title}}</h3></div>
+                                <div id="iFrame{{$video->video_title}}"
+                                     style="margin-left: auto;margin-right: auto"></div>
+                                <script>
+                                    var videoId = getId('{{$video->video_url}}');
+                                    var iframeMarkup = '<iframe width="600" height="400" src="//www.youtube.com/embed/'
+                                        + videoId + '" frameborder="0" allowfullscreen></iframe>';
+                                    document.getElementById("iFrame{{$video->video_title}}").innerHTML = iframeMarkup;
+                                </script>
+                            @endforeach
 
                     </div>
                     </div>

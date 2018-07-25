@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 class HomeController extends Controller
 {
@@ -36,7 +35,6 @@ class HomeController extends Controller
     public function dashboard()
     {
 
-        $user = Auth::user();
 
         if (Gate::allows('isadmin')) {
             return view('admin.admin_dashboard');
@@ -48,7 +46,6 @@ class HomeController extends Controller
 
     public function videos()
     {
-        $user = Auth::user();
 
         if (Gate::allows('isadmin')) {
             return view('videos');
@@ -60,10 +57,9 @@ class HomeController extends Controller
 
     public function testfragen()
     {
-        $user = Auth::user();
 
         if (Gate::allows('isadmin')) {
-            return view('testragen.index');
+            return view('testfragen.index');
         } else {
             return view('testfragen');
         }

@@ -18,9 +18,8 @@
                 <th>Fragen-ID</th>
                 <th>Kategorie</th>
                 <th>Frage</th>
+                <th>Antworten</th>
                 <th>Richtige Antwort</th>
-                <th>Falsche Antwort 1</th>
-                <th>Falsche Antwort 2</th>
             </tr>
             </thead>
             <tbody>
@@ -33,13 +32,10 @@
                     <td>{{ $fragenkatalog->fragen_id }}</td>
                     <td>{{ $fragenkatalog->Kategorie}}</td>
                     <td>{{ $fragenkatalog->frage}}</td>
-                    <td>{{ $fragenkatalog->richtige_antwort }}</td>
-                    <td>{{ $fragenkatalog->erste_falsche_antwort}}</td>
-                    <td>{{ $fragenkatalog->zweite_falsche_antwort}}</td>
-
-                    <td>
-
-                        <a href="{{ route('fragenkatalog.edit', $fragenkatalog->fragen_id) }}" class="btn btn-success">Bearbeiten</a>
+                    <td>{{ $fragenkatalog->antworten }}</td>
+                    <td>{{ $fragenkatalog->richtig}}</td>
+                    <td><a href="{{ route('fragenkatalog.edit', $fragenkatalog->fragen_id) }}" class="btn btn-success">Bearbeiten</a>
+                    </td>
                     <td> {!! Form::open(['method'=>'delete', 'route'=>['fragenkatalog.destroy', $fragenkatalog->fragen_id]]) !!}
                         {!! Form::submit('Löschen', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
                         {!! Form::close() !!}

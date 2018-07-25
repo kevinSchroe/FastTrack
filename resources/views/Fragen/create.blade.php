@@ -31,18 +31,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="richtige_antwort">Richtige Antwort </label><br>
-                                <input type="text" class="form-control" id="richtige_antwort" name="richtige_antwort" required>
+                                <label for="antworten">Mögliche Antworten</label><br>
+                                <input type="text" class="form-control" id="antworten" name="antworten" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="erste_falsche_antwort">1. "Falsche" Antwort </label><br>
-                                <input type="text" class="form-control" id="erste_falsche_antwort" name="erste_falsche_antwort" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="zweite_falsche_antwort">2. "Falsche" Antwort</label><br>
-                                <input type="text" class="form-control" id="zweite_falsche_antwort" name="zweite_falsche_antwort" required>
+                                <label for="richtig">Richtige Antwort</label><br>
+                                <input type="text" class="form-control" id="richtig" name="richtig" required>
                             </div><br>
 
                             <div class="form-group row mb-0">

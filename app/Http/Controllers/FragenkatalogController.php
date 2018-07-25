@@ -4,13 +4,9 @@ namespace App\Http\Controllers;
 
 use App\fragenkatalog;
 use Illuminate\Http\Request;
-use App\stammdaten;
-use App\User;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
-use Validator;
-use Gate;
-use Form;
+use Illuminate\Support\Facades\Gate;
+
 
 
 class FragenkatalogController extends Controller
@@ -31,6 +27,7 @@ class FragenkatalogController extends Controller
            return view('Fragen.index', compact('fragenkatalogs'));
        }else {
            abort(401, 'This action is unauthorized.');
+           return view('auth.login');
        }
     }
 
@@ -52,13 +49,11 @@ class FragenkatalogController extends Controller
      */
     public function store(Request $request)
     {
-            $data = Fragenkatalog::create([
+        Fragenkatalog::create([
                 'Kategorie' => $request['Kategorie'],
                 'frage' => $request['frage'],
-                'richtige_antwort' => $request['richtige_antwort'],
-                'erste_falsche_antwort' => $request['erste_falsche_antwort'],
-                'zweite_falsche_antwort' => $request['zweite_falsche_antwort'],
-
+            'antworten' => $request['antworten'],
+            'richtig' => $request['richtig'],
             ]);
 
             /* $data = $request -> validate([
@@ -110,9 +105,8 @@ class FragenkatalogController extends Controller
 
             'Kategorie' => 'required',
             'frage' => 'required',
-            'richtige_antwort' => 'required',
-            'erste_falsche_antwort' => 'required',
-            'zweite_falsche_antwot' => 'required',
+            'antworten' => 'required',
+            'richtig' => 'required',
 
         ]);
 

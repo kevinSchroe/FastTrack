@@ -38,24 +38,17 @@
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('richtige_antwort', 'richtige_antwort', ['class'=>'control-label col-md-2']) !!}
+            {!! Form::label('antworten', 'antworten', ['class'=>'control-label col-md-2']) !!}
             <div class="col-md-10">
-                {!! Form::text('richtige_antwort', $fragenkatalog->richtige_antwort, ['class'=>'form-control']) !!}
-                {!! $errors->has('richtige_antwort')?$errors->first('richtige_antwort'):'' !!}
+                {!! Form::text('antworten', $fragenkatalog->richtige_antwort, ['class'=>'form-control']) !!}
+                {!! $errors->has('antworten')?$errors->first('antworten'):'' !!}
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('erste_falsche_antwort', 'erste_falsche_antwort', ['class'=>'control-label col-md-2']) !!}
+            {!! Form::label('richtig', 'richtig', ['class'=>'control-label col-md-2']) !!}
             <div class="col-md-10">
-                {!! Form::text('erste_falsche_antwort', $fragenkatalog->erste_falsche_antwort, ['class'=>'form-control']) !!}
-                {!! $errors->has('erste_falsche_antwort')?$errors->first('erste_falsche_antwort'):'' !!}
-            </div>
-        </div>
-        <div class="form-group">
-            {!! Form::label('zweite_falsche_antwort', 'zweite_falsche_antwort', ['class'=>'control-label col-md-2']) !!}
-            <div class="col-md-10">
-                {!! Form::text('zweite_falsche_antwort', $fragenkatalog->zweite_falsche_antwort, ['class'=>'form-control']) !!}
-                {!! $errors->has('zweite_falsche_antwort')?$errors->first('zweite_falsche_antwort'):'' !!}
+                {!! Form::text('richtig', $fragenkatalog->erste_falsche_antwort, ['class'=>'form-control']) !!}
+                {!! $errors->has('richtig')?$errors->first('richtig'):'' !!}
             </div>
         </div>
 

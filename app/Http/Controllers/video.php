@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class fragenkatalog extends Model
+class video extends Model
 {
     public $timestamps = false;
     protected $fillable = [
-        'Kategorie', 'frage', 'antworten', 'richtig',
+        'video_url', 'video_title',
     ];
 }
