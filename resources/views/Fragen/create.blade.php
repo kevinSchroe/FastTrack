@@ -13,7 +13,7 @@
 
                     <div class="card-body">
 
-                        <form method="POST" action="{{ action('fragenkatalogController@store') }}" aria-label="{{ __('create') }}">
+                        <form method="POST" action="{{ action('FragenkatalogController@store') }}" aria-label="{{ __('create') }}">
                             @csrf
 
 
