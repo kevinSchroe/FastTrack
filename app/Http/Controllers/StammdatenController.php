@@ -59,7 +59,6 @@ class StammdatenController extends Controller
     {
         $user = User::create([
             'role' => $request['role'],
-            'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
         ]);
@@ -125,7 +124,6 @@ class StammdatenController extends Controller
         $this->validate($request, [
 
 
-            'name' => 'required',
             'role' => 'required',
 
             'Vorname' => 'required',
