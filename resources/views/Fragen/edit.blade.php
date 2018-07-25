@@ -4,8 +4,9 @@
 @section('content')
     <div class="container">
         <h3>Frage bearbeiten</h3>
-        {!! Form::model($fragenkatalogs, ['route'=>['fragenkatalog.update', $fragenkatalog->fragen_id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
-       <!-- Was machen ersten beiden divs? -->
+        {!! Form::model($fragen_id, ['route'=>['fragenkatalog.update', $fragen_id->fragen_id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
+
+    <!-- Was machen ersten beiden divs? -->
         <div class="form-group">
             {!! Form::label('frage', 'Frage', ['class'=>'control-label col-md-2']) !!}
             <div class="col-md-10">

@@ -31,6 +31,7 @@ class StammdatenController extends Controller
             return view('benutzerverwaltung.index', compact('stammdatens', 'benutzers'));
         }else {
             abort(401, 'This action is unauthorized.');
+            return view ('error');
         }
 
 
@@ -157,6 +158,8 @@ class StammdatenController extends Controller
         $user = User::find($id);
         $user->stammdaten->delete();
         $user->delete();
+
+       // $user->fahrlehrer_verwaltung->delete();
 
         /**
          * Stammdaten_User tabelle eintrag löschen

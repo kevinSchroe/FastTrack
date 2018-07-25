@@ -26,6 +26,10 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
+    public function error()
+    {
+        return view('error');
+    }
 
     public function home()
     {
@@ -47,11 +51,7 @@ class HomeController extends Controller
     public function videos()
     {
 
-        if (Gate::allows('isadmin')) {
-            return view('videos');
-        } else {
-            return view('videos');
-        }
+         return view('videos');
 
     }
 

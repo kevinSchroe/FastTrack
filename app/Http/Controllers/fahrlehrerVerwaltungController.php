@@ -22,48 +22,16 @@ class fahrlehrerVerwaltungController extends Controller
     public function index()
     {
         $fahrlehrer_verwaltungs = fahrlehrerVerwaltung::all();
-        return view('fahrlehrerVerwaltung.index', compact('fahrlehrer_verwaltungs'));
+        $stammdatens = Stammdaten::all();
+        $benutzers = User::all();
 
          $user = Auth::user();
 
        if (Gate::allows('isadmin')) {
-           return view('fahrlehrerVerwaltung.index', compact('fahrlehrer_verwaltungs'));
+           return view('fahrlehrerVerwaltung.index', compact('fahrlehrer_verwaltungs', 'stammdatens', 'benutzers'));
        }else {
            abort(401, 'This action is unauthorized.');
        }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('fahrlehrerVerwaltung.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $data = fahrlehrerVerwaltung::create([
-            'fahrlehrer_vorname' => $request['fahrlehrer_vorname'],
-            'fahrlehrer_nachname' => $request['fahrlehrer_nachname'],
-            'fahrlehrer_geburtsjahr' => $request['fahrlehrer_geburtsjahr'],
-            'auto_marke' => $request['auto_marke'],
-            'auto_baujahr' => $request['auto_baujahr'],
-            'kennzeichen' => $request['kennzeichen'],
-            'fahrlehrer_seit' => $request['fahrlehrer_seit'],
-            'beschreibung' => $request['beschreibung'],
-
-        ]);
-
-        return redirect('fahrlehrerVerwaltung');
     }
 
     /**
@@ -83,10 +51,10 @@ class fahrlehrerVerwaltungController extends Controller
      * @param  \App\fahrlehrerVerwaltung  $fahrlehrerVerwaltung
      * @return \Illuminate\Http\Response
      */
-    public function edit($fahrlehrer_id)
+    public function edit($id)
     {
-        $fahrlehrerVerwaltung = fahrlehrerVerwaltung::find($fahrlehrer_id);
-        return view('fahrlehrerVerwaltung.edit', compact('fahrlehrer_id', 'fahrlehrerVerwaltung'));
+        $user = fahrlehrerVerwaltung::find($id);
+        return view('fahrlehrerVerwaltung.edit', compact('user', 'stammdaten', 'fahrlehrer_verwaltung'));
     }
 
     /**
@@ -96,43 +64,25 @@ class fahrlehrerVerwaltungController extends Controller
      * @param  \App\fahrlehrerVerwaltung  $fahrlehrerVerwaltung
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, int $fahrlehrer_id)
+    public function update(Request $request, int $id)
     {
-        $fahrlehrerVerwaltung = fahrlehrerVerwaltung::where('fahrlehrer_id', '=', $fahrlehrer_id)->get()[0];
+        $fahrlehrerVerwaltung = fahrlehrerVerwaltung::where('user_id', '=', $id)->get()[0];
         $this->validate($request, [
 
-            'fahrlehrer_vorname' => 'required',
-            'fahrlehrer_nachname' => 'required',
-            'fahrlehrer_geburtsjahr' => 'required',
-            'auto_marke' => 'required',
-            'auto_baujahr' => 'required',
+            'Vorname' => 'required',
+            'Nachname' => 'required',
+            'Geburtsdatum' => 'required',
+            'einsatzgebiet' => 'required',
+            'fahrlehrer_seit' => 'required',
+            'automarke' => 'required',
             'auto_baujahr' => 'required',
             'kennzeichen' => 'required',
-            'fahrlehrer_seit' => 'required',
             'beschreibung' => 'required',
         ]);
 
         $fahrlehrerVerwaltung->update($request->all());
-
+        $fahrlehrerVerwaltung->stammdaten->update($request->all());
 
         return redirect('fahrlehrerVerwaltung');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\fahrlehrerVerwaltung  $fahrlehrerVerwaltung
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($fahrlehrer_id)
-    {
-        $fahrlehrerVerwaltung = fahrlehrerVerwaltung::find($fahrlehrer_id);
-        $fahrlehrerVerwaltung->delete();
-
-        /**
-         * Stammdaten_User tabelle eintrag löschen
-         */
-
-        return redirect('fragenkatalog');
     }
 }
