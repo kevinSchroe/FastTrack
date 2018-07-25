@@ -56,14 +56,6 @@ class FragenkatalogController extends Controller
             'richtig' => $request['richtig'],
             ]);
 
-            /* $data = $request -> validate([
-                 'Kategorie' => 'required',
-                 'frage' => 'required',
-                 'richtige_antwort' => 'required',
-                 'erste_falsche_antwort' => 'required',
-                 'zweite_falsche_antwort' => 'required',
-
-             ]);*/
         return redirect('fragenkatalog');
         }
 
