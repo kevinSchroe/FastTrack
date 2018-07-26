@@ -83,9 +83,10 @@ class StammdatenController extends Controller
 
         ]);
 
+        if($request['role'] == 'fahrlehrer')
         fahrlehrerVerwaltung::create([
             'user_id' => $user->id,
-        ]);
+        ]);else{}
 
         return redirect('stammdaten');
 
@@ -162,10 +163,8 @@ class StammdatenController extends Controller
     {
         $user = User::find($id);
         $user->stammdaten->delete();
-        $user->fahrlehrerVerwaltung->delete();
+       // $user->fahrlehrerVerwaltung->delete();
         $user->delete();
-
-       // $user->fahrlehrer_verwaltung->delete();
 
         /**
          * Stammdaten_User tabelle eintrag löschen
