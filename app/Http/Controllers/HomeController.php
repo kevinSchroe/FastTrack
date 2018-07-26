@@ -59,6 +59,13 @@ class HomeController extends Controller
 
     }
 
+    public function livestream()
+    {
+
+        return view('livestream');
+
+    }
+
     public function testfragen()
     {
 
