@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\stammdaten;
 use App\User;
-use Illuminate\Http\Request;
 use App\fahrlehrerVerwaltung;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -27,6 +27,7 @@ class StammdatenController extends Controller
      */
     public function index()
     {
+
 
 
         $user = Auth::user();
@@ -85,7 +86,10 @@ class StammdatenController extends Controller
             'IBAN' => $request['IBAN'],
             'BIC' => $request['BIC'],
 
+        ]);
 
+        fahrlehrerVerwaltung::create([
+            'user_id' => $user->id,
         ]);
         fahrlehrerVerwaltung::create([
             'user_id' => $user->id,

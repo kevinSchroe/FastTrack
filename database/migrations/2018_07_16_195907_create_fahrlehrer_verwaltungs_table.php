@@ -14,17 +14,17 @@ class CreateFahrlehrerVerwaltungsTable extends Migration
     public function up()
     {
         Schema::create('fahrlehrer_verwaltungs', function (Blueprint $table) {
-           // Diese Daten aus Stammdaten übernehmen? ODER in eigene Datenbanken aufsplitten??? --> Z.B. Auto
-            $table->increments('id');
-            $table ->integer('user_id');
-            $table->text('einsatzgebiet')->nullable();
-            $table->text('automarke')->nullable();
+            // Diese Daten aus Stammdaten übernehmen? ODER in eigene Datenbanken aufsplitten??? --> Z.B. Auto
+
+            $table->integer('user_id');
+            $table->string('einsatzgebiet')->nullable();
+            $table->string('automarke')->nullable();
             $table->integer('auto_baujahr')->nullable();
-            $table->text('kennzeichen')->nullable();
+            $table->string('kennzeichen')->nullable();
             $table->integer('fahrlehrer_seit')->nullable();
             $table->text('beschreibung')->nullable();
         });
-    }
+       }
 
     /**
      * Reverse the migrations.

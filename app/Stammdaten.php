@@ -21,4 +21,9 @@ class Stammdaten extends Model
         return $this->hasOne(fahrlehrerVerwaltung::class);
     }
 
+    public function fahrlehrer_verwaltung(){
+
+        return $this->hasOne(fahrlehrerVerwaltung::class);
+    }
+
 }

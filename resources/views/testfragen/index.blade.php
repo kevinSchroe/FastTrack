@@ -13,7 +13,7 @@
                         <!-- Übersicht Fragebogen Vorfahrt-->
                         <div class="Fragebogen">
                             <div class="box1">
-                                <img src = "https://image.flaticon.com/icons/svg/190/190293.svg" width="200px" height="200">
+                                <img src = "/FastTrack/resources/assets/img/traffic-sign.png" width="200px" height="200">
                             </div>
                             <div class="box2">
                                 <h4> Testfragen Vorfahrt</h4><br>
@@ -25,7 +25,7 @@
                         <!--Übersicht Fragebogen Technik-->
                         <div class="Fragebogen">
                             <div class="box1">
-                                <img src = "https://image.flaticon.com/icons/svg/535/535522.svg" width="200px" height="200">
+                                <img src = "/FastTrack/resources/assets/img/technics.png" width="200px" height="200">
                             </div>
                             <div class="box2">
                                 <h4> Testfragen Technik</h4><br>
@@ -37,7 +37,7 @@
                         <!--Übersicht Fragebogen Umwelt-->
                         <div class="Fragebogen">
                             <div class="box1">
-                                <img src = "https://image.flaticon.com/icons/svg/861/861120.svg" width="200px" height="200">
+                                <img src = "/FastTrack/resources/assets/img/ecology.png" width="200px" height="200">
                             </div>
                             <div class="box2">
                                 <h4> Testfragen Umwelt</h4><br>
