@@ -35,7 +35,7 @@ class AdminController extends Controller
             return view(  'admin.admin_dashboard');
         }else {
             /**
-             * Hier wurde der Standard Error-Handler entfernt und durch deine Error-Seite ersetzt
+             * Hier wurde der Standard Error-Handler entfernt und durch unsere Error-Seite ersetzt
              */
            // abort(401, 'This action is unauthorized.');
             return view ('error');
