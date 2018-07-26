@@ -12,7 +12,7 @@
     @endif
     <a href="fragenkatalog/create" class="btn btn-primary">Neue Frage anlegen</a>
     <div class="container_index">
-        <table class="table table-bordered table-responsive" style="margin-top: 10px;">
+        <table class="table">
             <thead>
             <tr>
                 <th>Fragen-ID</th>
