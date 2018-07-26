@@ -31,6 +31,7 @@ Route::get('/livestream', 'HomeController@livestream')->name('livestream');
 Route::get('/videos', 'HomeController@videos')->name('videos');
 Route::get('/admin_dashboard', 'AdminController@index')->name('admin_dashboard');
 Route::get('/testfragen', 'testfragencontroller@index')->name('testfragen');
+Route::get('/fahrlehrer', 'fahrlehrerVerwaltungController@ansicht')->name('fahrlehrer');
 
 Route::resource('/stammdaten', 'StammdatenController');
 Route::resource('/fragenkatalog', 'FragenkatalogController');

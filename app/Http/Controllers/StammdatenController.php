@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\stammdaten;
 use App\User;
 use Illuminate\Http\Request;
+use App\fahrlehrerVerwaltung;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -86,6 +87,9 @@ class StammdatenController extends Controller
 
 
         ]);
+        fahrlehrerVerwaltung::create([
+            'user_id' => $user->id,
+        ]);
 
         return redirect('stammdaten');
 
@@ -162,6 +166,7 @@ class StammdatenController extends Controller
     {
         $user = User::find($id);
         $user->stammdaten->delete();
+        $user->fahrlehrerVerwaltung->delete();
         $user->delete();
 
        // $user->fahrlehrer_verwaltung->delete();

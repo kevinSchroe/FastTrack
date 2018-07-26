@@ -11,13 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use Gate;
 use Form;
+use Illuminate\Support\Facades\DB;
 
 class fahrlehrerVerwaltungController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -29,14 +26,23 @@ class fahrlehrerVerwaltungController extends Controller
         $stammdatens = Stammdaten::all();
         $benutzers = User::all();
 
-         $user = Auth::user();
 
-       if (Gate::allows('isadmin')) {
-           return view('fahrlehrerVerwaltung.index', compact('fahrlehrer_verwaltungs', 'stammdatens', 'benutzers'));
-       }else {
-           abort(401, 'This action is unauthorized.');
-       }
+        $fahrlehrer = DB::table('fahrlehrer_verwaltungs')
+            ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
+            ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')
+            ->select('fahrlehrer_verwaltungs.*', 'stammdatens.Vorname', 'stammdatens.Nachname', 'stammdatens.Geburtsdatum', 'users.role')
+            -> where('users.role', '=', 'fahrlehrer')
+            ->get();
+
+        $user = Auth::user();
+
+        if (Gate::allows('isadmin')) {
+            return view('fahrlehrerVerwaltung.index', compact('fahrlehrer_verwaltungs', 'stammdatens', 'benutzers', 'fahrlehrer'));
+        }else {
+            abort(401, 'This action is unauthorized.');
+        }
     }
+
 
     /**
      * Display the specified resource.
@@ -45,9 +51,19 @@ class fahrlehrerVerwaltungController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(fahrlehrerVerwaltung $fahrlehrerVerwaltung)
+        // Einschränken, dass Rolle = Fahrlehrer
     {
-        $data = farhlehrerVerwaltung::select("select * from fahrlehrerVerwaltung");
-        print_r($data);    }
+        //$data = Stammdaten::select("select * from fahrlehrer_verwaltungs, stammdatens, users where role ='fahrlehrer'");
+
+        $data =DB::table('fahrlehrer_verwaltungs')
+            ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
+            ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')
+            ->select('fahrlehrer_verwaltungs.*', 'stammdatens.Vorname', 'stammdatens.Nachname', 'stammdatens.Geburtsdatum', 'users.role')
+            -> where('users.role', '=', 'fahrlehrer')
+            ->get();
+
+        print_r($data);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -55,10 +71,12 @@ class fahrlehrerVerwaltungController extends Controller
      * @param  \App\fahrlehrerVerwaltung  $fahrlehrerVerwaltung
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user_id)
     {
-        $user = fahrlehrerVerwaltung::find($id);
-        return view('fahrlehrerVerwaltung.edit', compact('user', 'stammdaten', 'fahrlehrer_verwaltung'));
+        // Einschränken, dass Rolle = Fahrlehrer
+        $fahrlehrer = Stammdaten::find($user_id);
+
+        return view('fahrlehrerVerwaltung.edit', compact( 'stammdaten', 'fahrlehrer_verwaltung', 'fahrlehrer', 'fahrlehrer1'));
     }
 
     /**
@@ -68,14 +86,12 @@ class fahrlehrerVerwaltungController extends Controller
      * @param  \App\fahrlehrerVerwaltung  $fahrlehrerVerwaltung
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, int $id)
+    public function update(Request $request, int $user_id)
     {
-        $fahrlehrerVerwaltung = fahrlehrerVerwaltung::where('user_id', '=', $id)->get()[0];
+        $fahrlehrerVerwaltung = fahrlehrerVerwaltung::where('user_id', '=', $user_id)->get()[0];
+
         $this->validate($request, [
 
-            'Vorname' => 'required',
-            'Nachname' => 'required',
-            'Geburtsdatum' => 'required',
             'einsatzgebiet' => 'required',
             'fahrlehrer_seit' => 'required',
             'automarke' => 'required',
@@ -85,8 +101,19 @@ class fahrlehrerVerwaltungController extends Controller
         ]);
 
         $fahrlehrerVerwaltung->update($request->all());
-        $fahrlehrerVerwaltung->stammdaten->update($request->all());
+
 
         return redirect('fahrlehrerVerwaltung');
+    }
+
+    public function ansicht(fahrlehrerVerwaltung $fahrlehrerVeraltung)
+    {
+        $fahrlehrer = DB::table('fahrlehrer_verwaltungs')
+            ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
+            ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')
+            ->select('fahrlehrer_verwaltungs.*', 'stammdatens.Vorname', 'stammdatens.Nachname', 'stammdatens.Geburtsdatum', 'users.role')
+            -> where('users.role', '=', 'fahrlehrer')
+            ->get();
+        return view('fahrlehrerVerwaltung.ansicht', compact('fahrlehrer_verwaltungs', 'stammdatens', 'benutzers', 'fahrlehrer'));
     }
 }

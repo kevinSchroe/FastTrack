@@ -9,10 +9,10 @@ class fahrlehrerVerwaltung extends Model
     public $timestamps = false;
     protected $fillable = [
         'user_id', 'einsatzgebiet', 'automarke', 'auto_baujahr', 'kennzeichen', 'fahrlehrer_seit', 'beschreibung',
-];
+    ];
     public function user(){
 
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(user::class);
     }
     public function stammdaten(){
 

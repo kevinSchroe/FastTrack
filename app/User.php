@@ -19,7 +19,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
+    public function fahrlehrer_verwaltung(){
+        return $this->hasOne(fahrlehrerVerwaltung::class);
+    }
 
     public function stammdaten(){
         return $this->hasOne(Stammdaten::class);

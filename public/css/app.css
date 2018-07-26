@@ -45,6 +45,7 @@
     box-sizing: border-box
 }
 
+
 html {
     font-family: sans-serif;
     line-height: 1.15;
@@ -68,6 +69,46 @@ main,
 nav,
 section {
     display: block
+}
+
+.Fragebogen{
+
+    width: 95%;
+    margin: 10px;
+    display:flex;
+    flex-direction: row;
+    border: 0.25px solid #c6a279;
+}
+
+.box1 {
+    flex:1;
+    margin: 20px;
+
+}
+.box2 {
+    flex:3;
+    margin: 20px;
+    background-color: bisque;
+    padding: 20px 10px 10px 30px;
+}
+
+
+  #überschrift{
+      font-size: 16px;
+      background-color: #ffd7a8;
+      border: 0.25px solid #c6a279;
+  }
+
+table{
+    position: relative;
+    background-color: bisque;
+    width: 100%;
+    border:0.5px solid #c6a279;
+}
+
+th{
+    width: 30%;
+    vertical-align: top;
 }
 
 body {
@@ -397,6 +438,26 @@ h4 {
 h5 {
     font-size: 1.125rem
 }
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit
+}
+
+
 
 .lead {
     font-size: 1.125rem;

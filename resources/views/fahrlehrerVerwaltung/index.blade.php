@@ -31,29 +31,25 @@
             </thead>
             <tbody>
 
-
-            @foreach($fahrlehrer_verwaltungs as $benutzer)
+            @foreach($fahrlehrer as $fahrlehrer)
 
                 <tr>
-
-                    <td>{{ $benutzer->id }}</td>
-                    <td>{{ $benutzer->stammdaten->Vorname }}</td>
-                    <td>{{ $benutzer->stammdaten->Nachname }}</td>
-                    <td>{{ $benutzer->stammdaten->Geburtsdatum }}</td>
-
-                    <td>{{ $user->fahrlehrer_verwaltungs->einsatzgebiet }}</td>
-                    <td>{{ $user->fahrlehrer_verwaltungs->fahrlehrer_seit }}</td>
-                    <td>{{ $user->fahrlehrer_verwaltungs->automarke }}</td>
-                    <td>{{ $user->fahrlehrer_verwaltungs->auto_baujahr }}</td>
-                    <td>{{ $user->fahrlehrer_verwaltungs->kennzeichen }}</td>
-                    <td>{{ $user->fahrlehrer_verwaltungs->beschreibung }}</td>
+                    <td>{{ $fahrlehrer->user_id }}</td>
+                    <td>{{ $fahrlehrer->Vorname }}</td>
+                    <td>{{ $fahrlehrer->Nachname }}</td>
+                    <td>{{ $fahrlehrer->Geburtsdatum }}</td>
 
 
-
+                    <td>{{ $fahrlehrer->einsatzgebiet }}</td>
+                    <td>{{ $fahrlehrer->fahrlehrer_seit }}</td>
+                    <td>{{ $fahrlehrer->automarke }}</td>
+                    <td>{{ $fahrlehrer->auto_baujahr }}</td>
+                    <td>{{ $fahrlehrer->kennzeichen }}</td>
+                    <td>{{ $fahrlehrer->beschreibung }}</td>
                     <td>
-                        <a href="{{ route('fahrlehrerVerwaltung.edit', $user->id) }}" class="btn btn-success">Bearbeiten</a>
+                        <a href="{{ route('fahrlehrerVerwaltung.edit', $fahrlehrer->user_id) }}" class="btn btn-success">Bearbeiten</a>
+                    </td>
                 </tr>
-
 
             @endforeach
             </tbody>

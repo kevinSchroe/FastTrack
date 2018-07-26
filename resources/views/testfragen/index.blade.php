@@ -1,42 +1,55 @@
+
 @extends('layouts.app')
 
-@section('header')
-    <h2>Testfragen</h2>
-@stop
-
 @section('content')
-    <main>
-        <!-- Haupt-Div; Hier sollen die verschiedenen Fragebögen angezeigt werden -->
-        <h1> Teste dein Wissen</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Testfragen - Teste dein Wissen!</div>
 
-        <!-- Übersicht Fragebogen Vorfahrt-->
-        <div class = "Fragebogen">
-            <img src = "https://image.gala.de/21462000/uncropped-0-0/79316c272bff76433a49fd074523e51b/Bo/vorfahrtsquiz.jpg" width="185" height="259"/>
-            <h3> Testfragen Vorfahrt</h3>
-            <p> Score: -- von 3 Fragen richtig</p>
-            <!--Buttom zum starten der fragenkatalog, Weiterleitung zu testfragen1.blade.php (Über link)-->
-            <!-- Warum Parent Location?-->
-            <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/vorfahrt'" value="Testbogen starten">
+                    <div class="card-body">
+
+                        <!-- Übersicht Fragebogen Vorfahrt-->
+                        <div class="Fragebogen">
+                            <div class="box1">
+                                <img src = "https://image.flaticon.com/icons/svg/190/190293.svg" width="200px" height="200">
+                            </div>
+                            <div class="box2">
+                                <h4> Testfragen Vorfahrt</h4><br>
+                                <p> Score: -- von 3 Fragen richtig</p><br>
+                                <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/vorfahrt'" value="Testbogen starten"><br>
+                            </div>
+                        </div>
+
+                        <!--Übersicht Fragebogen Technik-->
+                        <div class="Fragebogen">
+                            <div class="box1">
+                                <img src = "https://image.flaticon.com/icons/svg/535/535522.svg" width="200px" height="200">
+                            </div>
+                            <div class="box2">
+                                <h4> Testfragen Technik</h4><br>
+                                <p> Score: -- von 3 Fragen richtig</p><br>
+                                <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/technik'" value="Testbogen starten"><br>
+                            </div>
+                        </div>
+
+                        <!--Übersicht Fragebogen Umwelt-->
+                        <div class="Fragebogen">
+                            <div class="box1">
+                                <img src = "https://image.flaticon.com/icons/svg/861/861120.svg" width="200px" height="200">
+                            </div>
+                            <div class="box2">
+                                <h4> Testfragen Umwelt</h4><br>
+                                <p> Score: -- von 3 Fragen richtig</p><br>
+                                <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/umwelt'" value="Testbogen starten"><br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!--Übersicht Fragebogen Verkehrszeichen-->
-        <div class = "Fragebogen">
-            <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_Qjkfjsbxd2r0dFUsVAY3mejlANgqHYR73zuvZTueI7VgcbXacw"/>
-            <h3> Testfragen Technik</h3>
-            <p> Score: -- von 3 Fragen richtig</p>
-            <!--Buttom zum starten der fragenkatalog, Weiterleitung zu testfragen1.blade.php (Über link, ANPASSEN?)-->
-            <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/technik'" value="Testbogen starten">
-        </div>
-
-        <!--Übersicht Fragebogen Umwelt-->
-        <div class = "Fragebogen">
-            <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_Qjkfjsbxd2r0dFUsVAY3mejlANgqHYR73zuvZTueI7VgcbXacw"/>
-            <h3> Testfragen Umwelt</h3>
-            <p> Score: -- von 3 Fragen richtig</p>
-            <!--Buttom zum starten der fragenkatalog, Weiterleitung zu testfragen1.blade.php (ANPASSEN?)-->
-            <!-- Warum Parent Location?-->
-            <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/umwelt'" value="Testbogen starten">
-
-        </div>
-    </main>
+    </div>
 @endsection
+

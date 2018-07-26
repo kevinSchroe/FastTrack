@@ -21,6 +21,7 @@
     <!-- Style -->
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset ('resources/assets/sass/app.scss') }}" rel="stylesheet">
 
 
 </head>
@@ -34,7 +35,7 @@
             <a class="navbar-brand" href="{{ url('kalender') }}">
                 KALENDER
             </a>
-            <a class="navbar-brand" href="{{ url('dashboard') }}">
+            <a class="navbar-brand" href="{{ url('fahrlehrer') }}">
                 FAHRLEHRER
             </a>
             <a class="navbar-brand" href="{{ url('dashboard') }}">
