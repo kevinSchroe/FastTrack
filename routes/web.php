@@ -27,10 +27,10 @@ Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/kalender', 'HomeController@kalender')->name('kalender');
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::post('/dashboard', 'HomeController@dashboard')->name('dashboard');
+Route::get('/livestream', 'HomeController@livestream')->name('livestream');
 Route::get('/videos', 'HomeController@videos')->name('videos');
 Route::get('/admin_dashboard', 'AdminController@index')->name('admin_dashboard');
 Route::get('/testfragen', 'testfragencontroller@index')->name('testfragen');
-
 
 Route::resource('/stammdaten', 'StammdatenController');
 Route::resource('/fragenkatalog', 'FragenkatalogController');
