@@ -38,7 +38,7 @@
             <a class="navbar-brand" href="{{ url('fahrlehrer') }}">
                 FAHRLEHRER
             </a>
-            <a class="navbar-brand" href="{{ url('dashboard') }}">
+            <a class="navbar-brand" href="{{ url('livestream') }}">
                 LIVESTREAM
             </a>
             <a class="navbar-brand" href="{{ url('videos') }}">
