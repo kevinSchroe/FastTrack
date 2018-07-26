@@ -12,12 +12,12 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>e-Mail</th>
+                <th>E-Mail</th>
                 <th>Rolle</th>
                 <th>Vorname</th>
                 <th>Nachname</th>
                 <th>Straße</th>
-                <th>Haus Nr.</th>
+                <th>Hausnummer</th>
                 <th>PLZ</th>
                 <th>Ort</th>
                 <th>Geburtsdatum</th>
