@@ -75,9 +75,10 @@ class fahrlehrerVerwaltungController extends Controller
     public function edit($user_id)
     {
         // Einschränken, dass Rolle = Fahrlehrer
-        $fahrlehrer = Stammdaten::find($user_id);
+        $daten = Stammdaten::find($user_id);
+        $fahrlehrer = fahrlehrerVerwaltung::find($user_id);
 
-        return view('fahrlehrerVerwaltung.edit', compact( 'stammdaten', 'fahrlehrer_verwaltung', 'fahrlehrer', 'fahrlehrer1'));
+        return view('fahrlehrerVerwaltung.edit', compact( 'stammdaten', 'fahrlehrer_verwaltung', 'fahrlehrer', 'daten'));
     }
 
     /**

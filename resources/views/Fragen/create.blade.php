@@ -32,12 +32,12 @@
 
                             <div class="form-group">
                                 <label for="antworten">Mögliche Antworten</label><br>
-                                <input type="text" class="form-control" id="antworten" name="antworten" required>
+                                <input type="text" class="form-control" id="antworten" name="antworten" required placeholder="Antwort 1, Antwort 2, Antwort 3, ...">
                             </div>
 
                             <div class="form-group">
-                                <label for="richtig">Richtige Antwort</label><br>
-                                <input type="text" class="form-control" id="richtig" name="richtig" required>
+                                <label for="richtig">Richtige Antwort (maximal eine)</label><br>
+                                <input type="text" class="form-control" id="richtig" name="richtig" required placeholder="Antwort 2">
                             </div><br>
 
                             <div class="form-group row mb-0">

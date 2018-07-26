@@ -1,5 +1,5 @@
 /* Testfragen Generator und Evaluierer
- * Dieses Script interagiert mit der jeweiligien testfragenseite und ist universell einsetzbar
+ * Dieses Script interagiert mit der jeweiligen testfragenseite und ist universell einsetzbar
  */
 
 //Globale Variablen
@@ -22,10 +22,11 @@ function shuffle(a) {
     return a;
 }
 
+//Prüfen ob Antwort korrekt ??????????????????????????
 function evaluateQuestion() {
 
     var selectedAnswer = $('input[type=radio]:checked').data('content');
-    if (selectedAnswer.trim().toLowerCase() === currentCorrectAnswer.trim().toLowerCase()) { // damit die Antworten eingabe sicher sind werden Leerzeichen abgeschnitten(trim) und alle buchstaben in kleinbuchstaben gespeichert(toLowerCase)
+    if (selectedAnswer.trim().toLowerCase() === currentCorrectAnswer.trim().toLowerCase()) { // damit die Antworten eingabe sicher sind werden Leerzeichen abgeschnitten(trim) und alle Buchstaben in Kleinbuchstaben gespeichert(toLowerCase)
         correctAnswers++;
     } else {
         wrongQuestions.push(questions[currentQuestion])

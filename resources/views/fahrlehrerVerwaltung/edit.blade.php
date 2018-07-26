@@ -4,27 +4,28 @@
 @section('content')
     <div class="container">
         <h3>Fahrlehrer bearbeiten</h3>
-    {!! Form::model($fahrlehrer, ['route'=>['fahrlehrerVerwaltung.update', $fahrlehrer->user_id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
+    {!! Form::model($daten, ['route'=>['fahrlehrerVerwaltung.update', $daten->user_id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
     <!--Vorname, Nachname, Geburtsdatum nur über Stammdaten veränderbar-->
         <div class="form-group">
             {!! Form::label('Vorname', 'Vorname', ['class'=>'control-label col-md-2']) !!}
             <div class="col-md-10">
-                {!! Form::label ('Vorname', $fahrlehrer->Vorname, ['class'=>'form-control'])!!}
+                {!! Form::label ('Vorname', $daten->Vorname, ['class'=>'form-control'])!!}
             </div>
         </div>
         <div class="form-group">
             {!! Form::label('Nachname', 'Nachname', ['class'=>'control-label col-md-2']) !!}
             <div class="col-md-10">
-                {!! Form::label('Nachname', $fahrlehrer->Nachname, ['class'=>'form-control']) !!}
+                {!! Form::label('Nachname', $daten->Nachname, ['class'=>'form-control']) !!}
             </div>
         </div>
         <div class="form-group">
             {!! Form::label('Geburtsdatum', 'Geburtsdatum', ['class'=>'control-label col-md-2']) !!}
             <div class="col-md-10">
-                {!! Form::label('Geburtsdatum', $fahrlehrer->Geburtsdatum, ['class'=>'form-control']) !!}
-                {!! $errors->has('Geburtsdatum')?$errors->first('Geburtsdatum'):'' !!}
+                {!! Form::label('Geburtsdatum', $daten->Geburtsdatum, ['class'=>'form-control']) !!}
             </div>
         </div>
+
+        {!! Form::model($fahrlehrer, ['route'=>['fahrlehrerVerwaltung.update', $fahrlehrer->user_id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
         <div class="form-group">
             {!! Form::label('einsatzgebiet', 'Einsatzgebiet', ['class'=>'control-label col-md-2']) !!}
             <div class="col-md-10">
