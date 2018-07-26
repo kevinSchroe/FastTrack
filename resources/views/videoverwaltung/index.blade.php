@@ -11,11 +11,10 @@
         </div>
     @endif
 
-    <div class="card" style="width: 80%; margin: auto">
-        <div class="card-header">Videoverwaltung</div>
-        <div class="card-body">
-            <div class="container">
-                <table class="table table-responsive" style="margin-top: 10px;">
+
+
+            <div class="container_index">
+                <table class="table">
                     <thead>
                     <tr>
                         <th>Video-ID</th>

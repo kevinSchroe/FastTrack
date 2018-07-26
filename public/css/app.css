@@ -1815,6 +1815,7 @@ pre code {
     background-color: #f6dca3;
     background-color: hsla(41, 82%, 80%, 0.7);
     border: 1px solid #ddd!important;
+    margin-top: 2rem
 }
 
 .table td,
