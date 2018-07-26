@@ -28,7 +28,7 @@
         <div class="form-group">
             {!! Form::label('einsatzgebiet', 'Einsatzgebiet', ['class'=>'control-label col-md-2']) !!}
             <div class="col-md-10">
-                {!! Form::text('einsatzgebiet', $fahrlehrer->einsatzgebiet, ['class'=>'form-control']) !!}
+                {!! Form::text('einsatzgebiet', $fahrlehrer->fahrlehrerVerwaltung->einsatzgebiet, ['class'=>'form-control']) !!}
                 {!! $errors->has('einsatzgebiet')?$errors->first('einsatzgebiet'):'' !!}
             </div>
         </div>
