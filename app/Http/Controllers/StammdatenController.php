@@ -86,9 +86,6 @@ class StammdatenController extends Controller
         fahrlehrerVerwaltung::create([
             'user_id' => $user->id,
         ]);
-        fahrlehrerVerwaltung::create([
-            'user_id' => $user->id,
-        ]);
 
         return redirect('stammdaten');
 

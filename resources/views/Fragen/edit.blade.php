@@ -3,12 +3,12 @@
 
 @section('content')
     <div class="container">
-        <div class="card" style="width: 50%">
-            <div class="card-header">
-                Fragen Bearbeiten
-            </div>
-            <div class="card-body">
-                <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Frage bearbeiten</div>
+
+                    <div class="card-body">
 
                     <!-- if there are creation errors, they will show here -->
 
@@ -35,6 +35,7 @@
 
                     {{ Form::close() }}
 
+                    </div>
                 </div>
             </div>
         </div>

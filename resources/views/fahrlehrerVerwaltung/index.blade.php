@@ -38,8 +38,6 @@
                     <td>{{ $fahrlehrer->Vorname }}</td>
                     <td>{{ $fahrlehrer->Nachname }}</td>
                     <td>{{ $fahrlehrer->Geburtsdatum }}</td>
-
-
                     <td>{{ $fahrlehrer->einsatzgebiet }}</td>
                     <td>{{ $fahrlehrer->fahrlehrer_seit }}</td>
                     <td>{{ $fahrlehrer->automarke }}</td>
