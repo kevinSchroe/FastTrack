@@ -12,6 +12,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+    //prüft, ob der Benutzer eingeloggt ist
     public function __construct()
     {
         $this->middleware('auth');
@@ -43,7 +44,7 @@ class HomeController extends Controller
     public function dashboard()
     {
 
-
+       /**prüft, Admins bekommen ein anderes Dashoard angezeigt wie Fahrschüeler und Fahrlehrer*/
         if (Gate::allows('isadmin')) {
             return view('admin.admin_dashboard');
         } else {

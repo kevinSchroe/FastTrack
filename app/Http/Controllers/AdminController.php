@@ -16,6 +16,8 @@ class AdminController extends Controller
      *
      * @return void
      */
+
+    //prüft, ob der Benutzer eingeloggt ist
     public function __construct()
     {
         $this->middleware('auth');
