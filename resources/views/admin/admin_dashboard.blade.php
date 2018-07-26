@@ -25,7 +25,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="fahrlehrerVerwaltung">
-                                Fahrlehrer Verwaltung
+                                Fahrlehrerverwaltung
                             </a>
                         </li>
                     </ul>
