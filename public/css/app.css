@@ -1021,6 +1021,30 @@ pre code {
         flex: 0 0 100%;
         max-width: 100%
     }
+
+    .col-sm-13-w {
+        margin-top: 10rem;
+        opacity: 0.8;
+
+        padding-right: 1rem;
+        padding-left: 1rem;
+        background: white;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%
+    }
+    .col-sm-13 {
+        margin-top: 10rem;
+        opacity: 0.85;
+
+        padding-right: 1rem;
+        padding-left: 1rem;
+        background: #ea4d4e;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%
+    }
+
     .order-sm-first {
         -ms-flex-order: -1;
         order: -1
