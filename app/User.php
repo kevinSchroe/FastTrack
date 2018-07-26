@@ -19,7 +19,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function fahrlehrer_verwaltung(){
+    public function fahrlehrerVerwaltung(){
         return $this->hasOne(fahrlehrerVerwaltung::class);
     }
 
