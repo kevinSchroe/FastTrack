@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-<!-- Diesse Seite dient zur Registrierung der Fahrschüler und erfasst die Daten, welche in der Datenbank gespeichert werden -->
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

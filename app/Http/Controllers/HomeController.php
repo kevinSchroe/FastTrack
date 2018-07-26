@@ -37,7 +37,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        return view('home');
+        return view('welcome');
     }
 
     public function dashboard()
@@ -62,11 +62,9 @@ class HomeController extends Controller
     public function testfragen()
     {
 
-        if (Gate::allows('isadmin')) {
-            return view('testfragen.index');
-        } else {
+
             return view('testfragen');
-        }
+
 
     }
 
