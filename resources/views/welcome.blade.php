@@ -1,21 +1,9 @@
-<!doctype html>
 @extends('layouts.app')
 @section('content')
 
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-    <article>
+               <article>
             <div class="container-fluid bg-3 text-center">
 
                 <div>
