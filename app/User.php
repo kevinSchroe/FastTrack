@@ -19,12 +19,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-     public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
-
-    public function authorizeRoles($roles)
+        public function authorizeRoles($roles)
     {
         if (is_array($roles)) {
             return $this->hasAnyRole($roles) ||

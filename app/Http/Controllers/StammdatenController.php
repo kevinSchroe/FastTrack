@@ -22,12 +22,15 @@ class StammdatenController extends Controller
      */
     public function index()
     {
-        $stammdatens = Stammdaten::all();
-        $benutzers = User::all();
+
 
         $user = Auth::user();
 
         if (Gate::allows('isadmin')) {
+
+            $stammdatens = Stammdaten::all();
+            $benutzers = User::all();
+
             return view('benutzerverwaltung.index', compact('stammdatens', 'benutzers'));
         }else {
             abort(401, 'This action is unauthorized.');
@@ -98,7 +101,7 @@ class StammdatenController extends Controller
     }
 
     /**
-     * Show the for editing the specified resource.
+     * Dient zur Vorblendung der Stammdaten bei der Editierfunktion
      *
      * @param  \App\stammdaten $stammdaten
      * @return \Illuminate\Http\Response
@@ -112,7 +115,7 @@ class StammdatenController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Zum Bearbeiten / Update der User- / Stammdaten in der Datenbank
      *
      * @param  \Illuminate\Http\Request $request
      * @param int $id
