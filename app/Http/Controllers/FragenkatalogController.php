@@ -117,23 +117,6 @@ class FragenkatalogController extends Controller
                 'richtig' => $request['richtig']]);
 
         return redirect('fragenkatalog');
-
-
-        $fragenkatalog = Fragenkatalog::where('fragen_id', '=', $fragen_id)->get()[0];
-        $this->validate($request, [
-
-
-            'Kategorie' => 'required',
-            'frage' => 'required',
-            'antworten' => 'required',
-            'richtig' => 'required',
-
-        ]);
-
-        $fragenkatalog->update($request->all());
-
-
-        return redirect('fragenkatalog');
     }
 
     /**

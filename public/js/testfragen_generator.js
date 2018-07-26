@@ -64,7 +64,7 @@ function generateQuestions(fragen, kategorie) {
 function nextQuestion() {
     //Am Ende des Katalogs angekommen
     if (currentQuestion === questions.length) { //Alle Fragen sind hier Beantwortet Falsche Fragen werden nochmal aufgegriffen.
-        console.log('ende');
+        //console.log('ende');
         var preparedHtml = '<div class="container flex-column" style="display: flex">' +
             '<span style="font-size: 1.8em">Du hast <b>' + correctAnswers + '</b> Fragen von <b>' + questions.length + '</b> richtig beantwortet!</span>';
         if (wrongQuestions.length > 0) { //Falls Fragen falsch beantwortet wurden, wird hier eine entspechende Tabelle generiert
@@ -103,12 +103,12 @@ function postToDash() {
     var csrf_token = $('meta[name="csrf-token"]').attr('content'); //Den CSRF-Token abrufen um ihn mit zu übermitteln
     $.ajaxSetup({
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            'X-CSRF-TOKEN': csrf_token
         }
     });
     $.ajax(
         {
-            url: '/dashboard',
+            url: '../dashboard',
             method: 'POST',
             data: 'kategorie=' + category + '&antworten=' + questions.length + '&richtig=' + correctAnswers,
             success: function () {
