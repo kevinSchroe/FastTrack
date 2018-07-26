@@ -56,12 +56,7 @@ class StammdatenController extends Controller
         return view('benutzerverwaltung.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+    /**Verweis zum User und zu denn Stammdaten, um die Benutzer anzulegen*/
     public function store(Request $request)
 
 
