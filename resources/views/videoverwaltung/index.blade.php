@@ -12,6 +12,9 @@
     @endif
 
 
+    <div>
+        <a href="videoverwaltung/create" class="btn btn-primary">Neues Video hinzufügen</a>
+    </div>
 
             <div class="container_index">
                 <table class="table">
@@ -47,12 +50,6 @@
 
             </div>
         </div>
-
-
-        <div style="width: 7em; margin: auto;padding-bottom: 2em"><a href="videoverwaltung/create"
-                                                                     class="btn btn-primary">Neues Video hinzufügen</a>
-        </div>
-
     </div>
 
 @endsection
