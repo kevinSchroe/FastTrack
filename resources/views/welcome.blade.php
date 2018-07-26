@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-sm-13-w">
                             <h1>KOMPETENT</h1>
-                            <p class="card-text">Du fährst nur mit von uns geprüften und zertifizierten Fahrlehrern </p>
+                            <p class="card-text">Du fährst nur mit von uns geprüften und zertifizierten Fahrlehrern</p>
                         </div>
                         <div class="col-sm-13">
                             <h1>GÜNSTIG</h1>
