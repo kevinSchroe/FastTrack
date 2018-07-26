@@ -1,6 +1,8 @@
-
-@extends('layouts.app')
-
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    @extends('layouts.app')
+z
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -52,4 +54,5 @@
         </div>
     </div>
 @endsection
-
+</body>
+</html>

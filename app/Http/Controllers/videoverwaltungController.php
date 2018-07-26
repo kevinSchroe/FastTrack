@@ -25,7 +25,7 @@ class videoverwaltungController extends Controller
             $videos = video::all();
             return view('videoverwaltung.index', compact('videos'));
         } else {
-            return view('auth.login');
+            return view('error');
         }
     }
 
@@ -40,7 +40,7 @@ class videoverwaltungController extends Controller
             return view('videoverwaltung.create');
         } else {
             abort(401, 'This action is unauthorized.');
-            return view('auth.login');
+            return view('error');
         }
     }
 

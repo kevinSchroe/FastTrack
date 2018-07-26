@@ -39,7 +39,8 @@ class fahrlehrerVerwaltungController extends Controller
         if (Gate::allows('isadmin')) {
             return view('fahrlehrerVerwaltung.index', compact('fahrlehrer_verwaltungs', 'stammdatens', 'benutzers', 'fahrlehrer'));
         }else {
-            abort(401, 'This action is unauthorized.');
+            //abort(401, 'This action is unauthorized.');
+            return view ('error');
         }
     }
 
