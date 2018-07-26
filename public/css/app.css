@@ -1812,7 +1812,9 @@ pre code {
     width: 100%;
     max-width: 100%;
     margin-bottom: 1rem;
-    background-color: transparent
+    background-color: #f6dca3;
+    background-color: hsla(41, 82%, 80%, 0.7);
+    border: 1px solid #ddd!important;
 }
 
 .table td,
@@ -2224,7 +2226,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 }
 
 .form-group {
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
 }
 
 .form-text {
@@ -4224,7 +4226,7 @@ tbody.collapse.show {
     margin-right: 1rem;
     font-size: 1.125rem;
     line-height: inherit;
-    white-space: nowrap
+    white-space: nowrap;
 }
 
 .navbar-brand:focus,

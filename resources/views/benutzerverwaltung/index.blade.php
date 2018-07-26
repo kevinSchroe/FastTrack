@@ -8,7 +8,7 @@
 
     <a href="stammdaten/create" class="btn btn-primary">Neuen Benutzer anlegen</a>
     <div class="container_index">
-        <table class="table table-bordered table-responsive" style="margin-top: 10px;">
+        <table class="table table-bordered table-responsive">
             <thead>
             <tr>
                 <th>ID</th>
