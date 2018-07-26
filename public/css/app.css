@@ -1044,7 +1044,6 @@ pre code {
         flex: 0 0 25%;
         max-width: 25%
     }
-
     .order-sm-first {
         -ms-flex-order: -1;
         order: -1
