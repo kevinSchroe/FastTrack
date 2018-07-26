@@ -16,7 +16,7 @@ class Stammdaten extends Model
 
         return $this->belongsTo(User::class);
     }
-    public function fahrlehrer_verwaltung(){
+    public function fahrlehrerVerwaltung(){
 
         return $this->hasOne(fahrlehrerVerwaltung::class);
     }
