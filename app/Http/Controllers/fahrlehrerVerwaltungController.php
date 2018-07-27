@@ -26,7 +26,7 @@ class fahrlehrerVerwaltungController extends Controller
         $stammdatens = Stammdaten::all();
         $benutzers = User::all();
 
-
+        // Abfrage der DB fahrlehrer_verwaltungs, stammdatens, users über JOIN der drei Tabellen mit der Bedingung, dass role = fahrlehrer
         $fahrlehrer = DB::table('fahrlehrer_verwaltungs')
             ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
             ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')
@@ -34,6 +34,7 @@ class fahrlehrerVerwaltungController extends Controller
             -> where('users.role', '=', 'fahrlehrer')
             ->get();
 
+        //Kontrolle, ob Benutzer Adminrechte hat
         $user = Auth::user();
 
         if (Gate::allows('isadmin')) {
@@ -52,16 +53,14 @@ class fahrlehrerVerwaltungController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(fahrlehrerVerwaltung $fahrlehrerVerwaltung)
-        // Einschränken, dass Rolle = Fahrlehrer
     {
-        //$data = Stammdaten::select("select * from fahrlehrer_verwaltungs, stammdatens, users where role ='fahrlehrer'");
-
+        // Abfrage der DB fahrlehrer_verwaltungs, stammdatens, users über JOIN der drei Tabellen mit der Bedingung, dass role = fahrlehrer
         $data =DB::table('fahrlehrer_verwaltungs')
-            ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
-            ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')
-            ->select('fahrlehrer_verwaltungs.*', 'stammdatens.Vorname', 'stammdatens.Nachname', 'stammdatens.Geburtsdatum', 'users.role')
-            -> where('users.role', '=', 'fahrlehrer')
-            ->get();
+                ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
+                ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')
+                ->select('fahrlehrer_verwaltungs.*', 'stammdatens.Vorname', 'stammdatens.Nachname', 'stammdatens.Geburtsdatum', 'users.role')
+                -> where('users.role', '=', 'fahrlehrer')
+                ->get();
 
         print_r($data);
     }
@@ -74,7 +73,7 @@ class fahrlehrerVerwaltungController extends Controller
      */
     public function edit($user_id)
     {
-        // Einschränken, dass Rolle = Fahrlehrer
+        //Zugriff auf die Datenbanken Stammdatens und fahrlehrer_verwaltungs, geschlüsselt über die user_id
         $daten = Stammdaten::find($user_id);
         $fahrlehrer = fahrlehrerVerwaltung::find($user_id);
 
@@ -92,8 +91,8 @@ class fahrlehrerVerwaltungController extends Controller
     {
         $fahrlehrerVerwaltung = fahrlehrerVerwaltung::where('user_id', '=', $user_id)->get()[0];
 
+        //Validieren, ob alle erforderlichen Felder ausgefüllt sind
         $this->validate($request, [
-
             'einsatzgebiet' => 'required',
             'fahrlehrer_seit' => 'required',
             'automarke' => 'required',
@@ -104,12 +103,12 @@ class fahrlehrerVerwaltungController extends Controller
 
         $fahrlehrerVerwaltung->update($request->all());
 
-
         return redirect('fahrlehrerVerwaltung');
     }
 
     public function ansicht(fahrlehrerVerwaltung $fahrlehrerVeraltung)
     {
+        // Abfrage der DB fahrlehrer_verwaltungs, stammdatens, users über JOIN der drei Tabellen mit der Bedingung, dass role = fahrlehrer
         $fahrlehrer = DB::table('fahrlehrer_verwaltungs')
             ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
             ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')

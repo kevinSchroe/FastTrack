@@ -9,15 +9,15 @@ use mapWithKeys;
 
 class testfragenController extends Controller
 {
+    //Kontrolle ob eingeloggt --> falls nein: Zugriff verweigert
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
-
             return view(  'testfragen.index');
-
     }
 
     //Anzeigen der Vorfahrt-View mit den Daten aus der Datenbank-Tabelle "fragenkatalogs"
@@ -25,13 +25,12 @@ class testfragenController extends Controller
     {
         return view('testfragen.vorfahrt', compact('fragenkatalogs'));
     }
-    //Anzeigen der Technik-View mit den Daten aus der Datenbank-Tabelle "fragenkatalogs"
+
     public function technik(Fragenkatalog $fragenkatalogs)
     {
         return view('testfragen.technik', compact('fragenkatalogs'));
     }
 
-    //Anzeigen der Vorfahrt-View mit den Daten aus der Datenbank-Tabelle "fragenkatalogs"
     public function umwelt(Fragenkatalog $fragenkatalogs)
     {
         return view('testfragen.umwelt', compact('fragenkatalogs'));
