@@ -6,6 +6,7 @@ use App\stammdaten;
 use App\User;
 use App\fahrlehrerVerwaltung;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -163,11 +164,22 @@ class StammdatenController extends Controller
     {
         $user = User::find($id);
         $user->stammdaten->delete();
+
         if (Gate::allows('isfahrlehrer')){
             $user->fahrlehrerVerwaltung->delete();
         }
 
+
         $user->delete();
+
+
+
+           //  $query = fahrlehrerVerwaltung::where('user_id','=', $id);
+
+           // if($query !== Null)
+           // {    $user->fahrlehrerVerwaltung->delete();
+            //        }
+
 
         /**
          * Stammdaten_User tabelle eintrag löschen
