@@ -17,7 +17,7 @@
                 <th>Vorname</th>
                 <th>Nachname</th>
                 <th>Straße</th>
-                <th>Hausnummer</th>
+                <th>Hausnr.</th>
                 <th>PLZ</th>
                 <th>Ort</th>
                 <th>Geburtsdatum</th>
