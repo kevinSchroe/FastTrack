@@ -1,8 +1,7 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    @extends('layouts.app')
-z
+<!-- Übersicht über die Testbögen für die Fahrschüler -->
+
+@extends('layouts.app')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -19,7 +18,6 @@ z
                             </div>
                             <div class="box2">
                                 <h4> Testfragen Vorfahrt</h4><br>
-                                <p> Score: -- von 3 Fragen richtig</p><br>
                                 <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/vorfahrt'" value="Testbogen starten"><br>
                             </div>
                         </div>
@@ -31,7 +29,6 @@ z
                             </div>
                             <div class="box2">
                                 <h4> Testfragen Technik</h4><br>
-                                <p> Score: -- von 3 Fragen richtig</p><br>
                                 <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/technik'" value="Testbogen starten"><br>
                             </div>
                         </div>
@@ -43,7 +40,6 @@ z
                             </div>
                             <div class="box2">
                                 <h4> Testfragen Umwelt</h4><br>
-                                <p> Score: -- von 3 Fragen richtig</p><br>
                                 <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/umwelt'" value="Testbogen starten"><br>
                             </div>
                         </div>
@@ -54,5 +50,4 @@ z
         </div>
     </div>
 @endsection
-</body>
-</html>
+

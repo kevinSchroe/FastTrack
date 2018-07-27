@@ -71,6 +71,7 @@ section {
     display: block
 }
 
+/* CSS für testfragen/index.blade.php */
 .Fragebogen{
 
     width: 95%;
@@ -89,15 +90,16 @@ section {
     flex:3;
     margin: 20px;
     background-color: bisque;
-    padding: 20px 10px 10px 30px;
+    padding: 40px 10px 10px 30px;
 }
+/* Ende CSS für testfragen/index.blade.php */
 
-
-  #überschrift{
-      font-size: 16px;
-      background-color: #ffd7a8;
-      border: 0.25px solid #c6a279;
-  }
+/* CSS für fahrlehrerVerwaltung/ansicht.blade.php */
+#überschrift{
+  font-size: 16px;
+  background-color: #ffd7a8;
+  border: 0.25px solid #c6a279;
+}
 
 table{
     position: relative;
@@ -110,6 +112,7 @@ th{
     width: 30%;
     vertical-align: top;
 }
+/* Ende CSS für ür fahrlehrerVerwaltung/ansicht.blade.php */
 
 body {
 

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class FragenkatalogController extends Controller
 {
+    //Kontrolle ob eingeloggt --> falls nein: Zugriff verweigert
     public function __construct()
     {
         $this->middleware('auth');
@@ -25,6 +26,7 @@ class FragenkatalogController extends Controller
         $fragenkatalogs = fragenkatalog::all();
         return view('Fragen.index', compact('fragenkatalogs'));
 
+        //Kontrolle, ob User Adminrechte hat
         $user = Auth::user();
 
         if (Gate::allows('isadmin')) {
@@ -40,6 +42,7 @@ class FragenkatalogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('Fragen.create');
@@ -51,6 +54,8 @@ class FragenkatalogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //Speichern der eingegebenen Daten in der Datenbank
     public function store(Request $request)
     {
         Fragenkatalog::create([
@@ -69,6 +74,8 @@ class FragenkatalogController extends Controller
      * @param  \App\fragenkatalog  $fragenkatalog
      * @return \Illuminate\Http\Response
      */
+
+    //Daten aus der Datenbank auslesen
     public function show(fragenkatalog $fragenkatalog)
     {
         $data = Fragenkatalog::select("select * from fragenkatalog");
@@ -80,6 +87,7 @@ class FragenkatalogController extends Controller
      * @param  \App\fragenkatalog  $fragenkatalog
      * @return \Illuminate\Http\Response
      */
+//Bearbeiten der Fragen unter der Vorraussetzung, dass User = Admin)
     public function edit($fragen_id)
     {
         if (Gate::allows('isadmin')) {
@@ -100,10 +108,9 @@ class FragenkatalogController extends Controller
      * @param  \App\fragenkatalog  $fragenkatalog
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, int $fragen_id)
     {
-
-
         $this->validate($request, [
             'frage' => 'required',
             'antworten' => 'required',
@@ -117,23 +124,6 @@ class FragenkatalogController extends Controller
                 'richtig' => $request['richtig']]);
 
         return redirect('fragenkatalog');
-
-
-        $fragenkatalog = Fragenkatalog::where('fragen_id', '=', $fragen_id)->get()[0];
-        $this->validate($request, [
-
-
-            'Kategorie' => 'required',
-            'frage' => 'required',
-            'antworten' => 'required',
-            'richtig' => 'required',
-
-        ]);
-
-        $fragenkatalog->update($request->all());
-
-
-        return redirect('fragenkatalog');
     }
 
     /**
@@ -142,6 +132,7 @@ class FragenkatalogController extends Controller
      * @param  \App\fragenkatalog  $fragenkatalog
      * @return \Illuminate\Http\Response
      */
+    //Löschen der gewünschten Datensätze in DB
     public function destroy($fragen_id)
     {
         $fragenkatalog = fragenkatalog::where('fragen_id', '=', $fragen_id);

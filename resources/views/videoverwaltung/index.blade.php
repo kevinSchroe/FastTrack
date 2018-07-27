@@ -38,7 +38,7 @@
                             <td><a href="{{ route('videoverwaltung.edit', $video->video_id) }}" class="btn btn-success">Bearbeiten</a>
                             </td>
                             <td> {!! Form::open(['method'=>'delete', 'route'=>['videoverwaltung.destroy', $video->video_id]]) !!}
-                                {!! Form::submit('Löschen', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Do you want to delete this record?")']) !!}
+                                {!! Form::submit('Löschen', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Soll das Video wirklich gelöscht werden?")']) !!}
                                 {!! Form::close() !!}
                             </td>
                         </tr>

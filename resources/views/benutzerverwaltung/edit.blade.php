@@ -3,82 +3,86 @@
 
 @section('content')
     <div class="container">
-    <div class="container">
-    <h3>Benutzer bearbeiten</h3>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Benutzer bearbeiten</div>
+
+                    <div class="card-body">
     {!! Form::model($user, ['route'=>['stammdaten.update', $user->id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
 
     <div class="form-group">
-        {!! Form::label('role', 'Rolle', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('role', 'Rolle', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('role', null, ['class'=>'form-control']) !!}
             {!! $errors->has('role')?$errors->first('role'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('Vorname', 'Vorname', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('Vorname', 'Vorname', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('Vorname', $user->stammdaten->Vorname, ['class'=>'form-control']) !!}
             {!! $errors->has('Vorname')?$errors->first('Vorname'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('Nachname', 'Nachname', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('Nachname', 'Nachname', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('Nachname', $user->stammdaten->Nachname, ['class'=>'form-control']) !!}
             {!! $errors->has('Nachname')?$errors->first('Nachname'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('Strasse', 'Strasse', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('Strasse', 'Strasse', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('Strasse', $user->stammdaten->Strasse, ['class'=>'form-control']) !!}
             {!! $errors->has('Strasse')?$errors->first('Strasse'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('Hausnummer', 'Hausnummer', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('Hausnummer', 'Hausnummer', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('Hausnummer', $user->stammdaten->Hausnummer, ['class'=>'form-control']) !!}
             {!! $errors->has('Hausnummer')?$errors->first('Hausnummer'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('Postleitzahl', 'Postleitzahl', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('Postleitzahl', 'Postleitzahl', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('Postleitzahl', $user->stammdaten->Postleitzahl, ['class'=>'form-control']) !!}
             {!! $errors->has('Postleitzahl')?$errors->first('Postleitzahl'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('Ort', 'Ort', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('Ort', 'Ort', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('Ort', $user->stammdaten->Ort, ['class'=>'form-control']) !!}
             {!! $errors->has('Ort')?$errors->first('Ort'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('Telefonnummer', 'Telefonnummer', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('Telefonnummer', 'Telefonnummer', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('Telefonnummer', $user->stammdaten->Telefonnummer, ['class'=>'form-control']) !!}
             {!! $errors->has('Telefonnummer')?$errors->first('Telefonnummer'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('Geburtsdatum', 'Geburtsdatum', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('Geburtsdatum', 'Geburtsdatum', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('Geburtsdatum', $user->stammdaten->Geburtsdatum, ['class'=>'form-control']) !!}
             {!! $errors->has('Geburtsdatum')?$errors->first('Geburtsdatum'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('IBAN', 'IBAN', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('IBAN', 'IBAN', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('IBAN', $user->stammdaten->IBAN, ['class'=>'form-control']) !!}
             {!! $errors->has('IBAN')?$errors->first('IBAN'):'' !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('BIC', 'BIC', ['class'=>'control-label col-md-2']) !!}
+        {!! Form::label('BIC', 'BIC', ['class'=>'control-label col-md-4']) !!}
         <div class="col-md-10">
             {!! Form::text('BIC', $user->stammdaten->BIC, ['class'=>'form-control']) !!}
             {!! $errors->has('BIC')?$errors->first('BIC'):'' !!}
@@ -93,5 +97,10 @@
 </div>
     </div>
     {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
 @endsection
 

@@ -9,17 +9,18 @@ use mapWithKeys;
 
 class testfragenController extends Controller
 {
+    //Kontrolle ob eingeloggt --> falls nein: Zugriff verweigert
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     public function index()
     {
-
             return view(  'testfragen.index');
-
     }
 
+    //Anzeigen der Vorfahrt-View mit den Daten aus der Datenbank-Tabelle "fragenkatalogs"
     public function vorfahrt(Fragenkatalog $fragenkatalogs)
     {
         return view('testfragen.vorfahrt', compact('fragenkatalogs'));
@@ -33,13 +34,5 @@ class testfragenController extends Controller
     public function umwelt(Fragenkatalog $fragenkatalogs)
     {
         return view('testfragen.umwelt', compact('fragenkatalogs'));
-    }
-
-
-    public function subpage(Request $request, Fragenkatalog $fragenkatalogs)
-    {
-        dd($request->all());
-        //dd($request->get(1)==='richtige_antwort');
-
     }
 }

@@ -5,11 +5,7 @@
 @stop
 
 @section('content')
-    @if(Session::has('message'))
-        <div class="alert alert-info">
-            {{Session::get('message')}}
-        </div>
-    @endif
+
     <a href="fragenkatalog/create" class="btn btn-primary">Neue Frage anlegen</a>
     <div class="container_index">
         <table class="table">

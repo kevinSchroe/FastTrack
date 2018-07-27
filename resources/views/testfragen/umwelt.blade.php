@@ -1,4 +1,4 @@
-<!-- Hier soll der Fragenkatalog-Umwelt hin-->
+<!-- Dies ist die Ansicht für den Fragenkatalog Umwelt-->
 @extends('layouts.app')
 
 @section('content')
@@ -7,13 +7,11 @@
     <?php $fragen = DB::table('fragenkatalogs')->select('frage', 'fragen_id', 'antworten', 'richtig')->where('Kategorie', 'umwelt')->get() ?>
 
     <!-- JavaScript import zum evaluieren und generieren der Fragen und auch jQuery wird hier importiert (Evtl. Global machen?) -->
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{URL::asset('js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{URL::asset('js/testfragen_generator.js')}}"></script>
 
     <head>
+        <!-- Abfrage, ob User eingeloggt ist -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
 
@@ -24,6 +22,7 @@
                 <div class="card">
                     <div class="card-header">Testfragen - Umwelt</div>
                     <div class="card-body" id="cardBody">
+                        <!-- Ausgabe der Fragen mit Kategorie = Umwelt-->
                         <script>generateQuestions(<?php echo $fragen ?>, 'umwelt')</script>
                 </div>
             </div>

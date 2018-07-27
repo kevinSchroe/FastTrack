@@ -1,17 +1,15 @@
-@extends('layouts.app')
+<!-- Diesse Seite dient dem Bearbeiten bereits exisitierender Fragen in der Fragenrverwaltung im Admin-Dashboard -->
 
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
-        <div class="card" style="width: 50%">
-            <div class="card-header">
-                Fragen Bearbeiten
-            </div>
-            <div class="card-body">
-                <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Frage bearbeiten</div>
 
-                    <!-- if there are creation errors, they will show here -->
-
+                    <div class="card-body">
 
                     {{ Form::model($frage, array('route' => array('fragenkatalog.update', $frage->fragen_id), 'method' => 'PUT')) }}
 
@@ -35,6 +33,7 @@
 
                     {{ Form::close() }}
 
+                    </div>
                 </div>
             </div>
         </div>

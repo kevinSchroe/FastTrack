@@ -6,6 +6,7 @@ use App\stammdaten;
 use App\User;
 use App\fahrlehrerVerwaltung;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -14,20 +15,15 @@ use Gate;
 
 class StammdatenController extends Controller
 {
+    /**Prüfung, ob der Benutzer eingeloggt ist, um Zugriff von Unbefugten zu verhindern*/
     public function __construct()
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     *
-     * die Variable benutzer wird anstelle von user genommen (das user eine Systemvariable ist)
-     */
+
     public function index()
     {
-
+        /**Erstellung einer Liste mit allen Benutzern für die Übersicht*/
 
 
         $user = Auth::user();
@@ -46,11 +42,7 @@ class StammdatenController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('benutzerverwaltung.create');
@@ -83,9 +75,7 @@ class StammdatenController extends Controller
 
         ]);
 
-        fahrlehrerVerwaltung::create([
-            'user_id' => $user->id,
-        ]);
+        if($request['role'] == 'fahrlehrer')
         fahrlehrerVerwaltung::create([
             'user_id' => $user->id,
         ]);
@@ -95,12 +85,7 @@ class StammdatenController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\stammdaten $stammdaten
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(stammdaten $stammdaten)
     {
         $data = Stammdaten::select("select * from stammdaten");
@@ -156,7 +141,7 @@ class StammdatenController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Updaten von einzelnen Änderungen
      *
      * @param  \App\stammdaten $stammdaten
      * @return \Illuminate\Http\Response
@@ -165,10 +150,22 @@ class StammdatenController extends Controller
     {
         $user = User::find($id);
         $user->stammdaten->delete();
-        $user->fahrlehrerVerwaltung->delete();
+
+        if (Gate::allows('isfahrlehrer')){
+            $user->fahrlehrerVerwaltung->delete();
+        }
+
+
         $user->delete();
 
-       // $user->fahrlehrer_verwaltung->delete();
+
+
+           //  $query = fahrlehrerVerwaltung::where('user_id','=', $id);
+
+           // if($query !== Null)
+           // {    $user->fahrlehrerVerwaltung->delete();
+            //        }
+
 
         /**
          * Stammdaten_User tabelle eintrag löschen

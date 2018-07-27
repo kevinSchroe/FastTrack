@@ -37,8 +37,8 @@
 
     <head>
         <!-- Import google charts and the Script for Chart Creating -->
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+        <script src="{{URL::asset('js/charts/loader.js')}}"></script>
+        <script src="{{URL::asset('js/charts/charts.js')}}"></script>
         <script src="{{URL::asset('js/dashboard_stats.js')}}"></script>
     </head>
 
@@ -62,7 +62,10 @@
                     ?>
                     <!-- Statistiken hier -->
                         <div class="container flex-column" style="display: flex">
-                                <span class="text-md-left">Hallo <?php echo Auth::user()->name; ?>!
+                                <span class="text-md-left">Hallo <?php $query = DB::table('stammdatens')
+                                                                                ->select('vorname')
+                                                                                ->where('user_id', Auth::user()->id)->get();
+                                    echo $query[0]->vorname?>!
                                 <br>
                                 <br>Hier siehst du deine bisherigen Statistiken:</span>
                             <?php  if (sizeof($stats) === 0) echo '<span style="margin-top: 3em; margin-bottom: 6em">Bisher noch keine Fragen absolviert!</span>'?>

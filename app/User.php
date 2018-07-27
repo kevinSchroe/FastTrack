@@ -19,16 +19,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**Stellt die Datenbankbeziehungen her*/
     public function fahrlehrerVerwaltung(){
         return $this->hasOne(fahrlehrerVerwaltung::class);
     }
 
     public function stammdaten(){
         return $this->hasOne(Stammdaten::class);
-    }
-
-    public function fahrlehrer_verwaltung(){
-        return $this->hasOne(fahrlehrerVerwaltung::class);
     }
 
 }
