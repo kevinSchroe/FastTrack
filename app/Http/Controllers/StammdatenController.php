@@ -15,20 +15,15 @@ use Gate;
 
 class StammdatenController extends Controller
 {
+    /**Prüfung, ob der Benutzer eingeloggt ist*/
     public function __construct()
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     *
-     * die Variable benutzer wird anstelle von user genommen (das user eine Systemvariable ist)
-     */
+
     public function index()
     {
-
+        /**Erstellung einer Liste mit allen Benutzern*/
 
 
         $user = Auth::user();
@@ -47,11 +42,7 @@ class StammdatenController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('benutzerverwaltung.create');
@@ -94,12 +85,7 @@ class StammdatenController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\stammdaten $stammdaten
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(stammdaten $stammdaten)
     {
         $data = Stammdaten::select("select * from stammdaten");

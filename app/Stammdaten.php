@@ -12,6 +12,7 @@ class Stammdaten extends Model
         'IBAN','BIC',
     ];
 
+    /**Stellt die Datenbankbeziehungen her*/
     public function user(){
 
         return $this->belongsTo(User::class);

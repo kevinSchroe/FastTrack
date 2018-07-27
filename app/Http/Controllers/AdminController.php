@@ -30,7 +30,7 @@ class AdminController extends Controller
 */
     public function index()
     {
-
+        /**Prüfung, ob der Benutzer die Rolle admin hat, wenn ja, Weiterleitung zum Admin-Dashboard, nein dann Error*/
         $user = Auth::user();
 
         if (Gate::allows('isadmin')) {
