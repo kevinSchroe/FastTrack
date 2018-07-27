@@ -15,7 +15,7 @@ use Gate;
 
 class StammdatenController extends Controller
 {
-    /**Prüfung, ob der Benutzer eingeloggt ist*/
+    /**Prüfung, ob der Benutzer eingeloggt ist, um Zugriff von Unbefugten zu verhindern*/
     public function __construct()
     {
         $this->middleware('auth');
@@ -23,7 +23,7 @@ class StammdatenController extends Controller
 
     public function index()
     {
-        /**Erstellung einer Liste mit allen Benutzern*/
+        /**Erstellung einer Liste mit allen Benutzern für die Übersicht*/
 
 
         $user = Auth::user();
@@ -141,7 +141,7 @@ class StammdatenController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Updaten von einzelnen Änderungen
      *
      * @param  \App\stammdaten $stammdaten
      * @return \Illuminate\Http\Response
