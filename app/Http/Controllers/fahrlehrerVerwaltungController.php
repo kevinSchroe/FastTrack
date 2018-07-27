@@ -75,9 +75,9 @@ class fahrlehrerVerwaltungController extends Controller
     {
         //Zugriff auf die Datenbanken Stammdatens und fahrlehrer_verwaltungs, geschlüsselt über die user_id
         $daten = Stammdaten::find($user_id);
-        $fahrlehrer = fahrlehrerVerwaltung::find($user_id);
+        $fahrlehrer = fahrlehrerVerwaltung::find( Stammdaten::find($user_id));
 
-        return view('fahrlehrerVerwaltung.edit', compact( 'stammdaten', 'fahrlehrer_verwaltung', 'fahrlehrer', 'daten'));
+        return view('fahrlehrerVerwaltung.edit', compact( 'stammdaten',  'fahrlehrer','fahrlehrer_verwaltung', 'daten'));
     }
 
     /**

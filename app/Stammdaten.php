@@ -8,7 +8,7 @@ class Stammdaten extends Model
 {
 
     protected $fillable = [
-      'user_id', 'Vorname', 'Nachname', 'Strasse', 'Hausnummer', 'Postleitzahl', 'Ort', 'Geburtsdatum','Telefonnummer',
+        'user_id', 'Vorname', 'Nachname', 'Strasse', 'Hausnummer', 'Postleitzahl', 'Ort', 'Geburtsdatum','Telefonnummer',
         'IBAN','BIC',
     ];
 
