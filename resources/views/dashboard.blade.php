@@ -69,7 +69,9 @@
                                 <br>
                                 <br>Hier siehst du deine bisherigen Statistiken:</span>
                             <?php  if (sizeof($stats) === 0) echo '<span style="margin-top: 3em; margin-bottom: 6em">Bisher noch keine Fragen absolviert!</span>'?>
-                        </div>
+
+                        @if (sizeof($stats)>=1)
+                            </div>
                         <script>getData(<?php echo $stats?>)</script>
                         <div id="bar-chart-div">
                         </div>
@@ -97,7 +99,8 @@
                             @endforeach
                             </tbody>
                         </table>
-                    </div>
+                            @endif
+                    <div/>
                 </div>
             </div>
         </div>
