@@ -14,7 +14,7 @@ class fahrlehrerVerwaltung extends Model
     // definiert Beziehung zwischen users und fahrlerer_verwaltungs
     public function user(){
 
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(User::class);
     }
 
     // definiert Beziehung zwischen stammdatens und fahrlerer_verwaltungs

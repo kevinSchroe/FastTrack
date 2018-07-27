@@ -1,9 +1,8 @@
+<!-- Diesse Seite dient dem Erstellen neuer Fragen in der Fragenverwaltung im Admin-Dashboard  -->
+
 @extends('layouts.app')
 
-<!-- Diesse Seite dient zur Registrierung der Fahrschüler und erfasst die Daten, welche in der Datenbank gespeichert werden -->
-
 @section('content')
-
 
     <div class="container">
         <div class="row justify-content-center">
@@ -14,8 +13,8 @@
                     <div class="card-body">
 
                         <form method="POST" action="{{ action('FragenkatalogController@store') }}" aria-label="{{ __('create') }}">
+                           <!--Schutz vor Cross-Site-Request-Forgery- Angriffen (CSRF)-->
                             @csrf
-
 
                             <div class="form-group">
                                 <label for="Kategorie">Fragebogen Kategorie</label><br>
@@ -25,6 +24,7 @@
                                     <option>Umwelt</option>
                                 </select>
                             </div>
+
                             <div class="form-group">
                                 <label for="frage">Frage</label><br>
                                 <textarea class="form-control" id="frage" name="frage" rows="2" required></textarea>
@@ -47,6 +47,7 @@
                                     </button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>

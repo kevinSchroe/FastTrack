@@ -1,3 +1,4 @@
+<!-- Diesse Seite zeigt im Admin-Dashboard unter Fahrlehrerverwaltung alle existierenden Fahrlehrer mitsamt Informationen an-->
 @extends('layouts.app')
 
 @section('header')

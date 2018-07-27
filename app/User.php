@@ -28,8 +28,4 @@ class User extends Authenticatable
         return $this->hasOne(Stammdaten::class);
     }
 
-    public function fahrlehrer_verwaltung(){
-        return $this->hasOne(fahrlehrerVerwaltung::class);
-    }
-
 }

@@ -1,4 +1,4 @@
-<!-- Hier soll der Fragenkatalog-Umwelt hin-->
+<!-- Dies ist die Ansicht für den Fragenkatalog Vorfahrt-->
 @extends('layouts.app')
 
 @section('content')
@@ -11,6 +11,7 @@
     <script type="text/javascript" src="{{URL::asset('js/testfragen_generator.js')}}"></script>
 
     <head>
+        <!-- Abfrage, ob User eingeloggt ist -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
 
@@ -21,6 +22,7 @@
                 <div class="card">
                     <div class="card-header">Testfragen - Vorfahrt</div>
                     <div class="card-body" id="cardBody">
+                        <!-- Ausgabe der Fragen mit Kategorie = Vorfahrt-->
                         <script>generateQuestions(<?php echo $fragen;?>, 'vorfahrt')</script>
                     </div>
                 </div>

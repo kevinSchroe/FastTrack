@@ -10,7 +10,7 @@ var currentCorrectAnswer = ""; //Hier wird immer die aktuell richtige Antwort ge
 var correctAnswers = 0; //Anzahl der Richtigen Antworten
 var wrongQuestions = [];
 
-//Funktion zum mixen des Arrays
+//Funktion zum mixen des Arrays, damit die Anordnung der Antworten variiert
 function shuffle(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -22,13 +22,14 @@ function shuffle(a) {
     return a;
 }
 
-//Prüfen ob Antwort korrekt ??????????????????????????
+//Prüfen ob Antwort korrekt ist
 function evaluateQuestion() {
 
     var selectedAnswer = $('input[type=radio]:checked').data('content');
     if (selectedAnswer.trim().toLowerCase() === currentCorrectAnswer.trim().toLowerCase()) { // damit die Antworten eingabe sicher sind werden Leerzeichen abgeschnitten(trim) und alle Buchstaben in Kleinbuchstaben gespeichert(toLowerCase)
         correctAnswers++;
     } else {
+        //Falsch Beantwortete Fragen sammeln, um diese nach Abschluss des Fragebogens anzuzeigen
         wrongQuestions.push(questions[currentQuestion])
     }
     currentQuestion++; //Nächste Frage
@@ -101,7 +102,8 @@ function nextQuestion() {
 }
 
 function postToDash() {
-    var csrf_token = $('meta[name="csrf-token"]').attr('content'); //Den CSRF-Token abrufen um ihn mit zu übermitteln
+    //Den CSRF-Token abrufen um ihn mit zu übermitteln, da sonst keine Datenübermittlung an Dashboard
+    var csrf_token = $('meta[name="csrf-token"]').attr('content');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': csrf_token

@@ -106,6 +106,7 @@ class fahrlehrerVerwaltungController extends Controller
         return redirect('fahrlehrerVerwaltung');
     }
 
+    // Stellt die Daten für die "normale" Ansicht der Fahrlehrer
     public function ansicht(fahrlehrerVerwaltung $fahrlehrerVeraltung)
     {
         // Abfrage der DB fahrlehrer_verwaltungs, stammdatens, users über JOIN der drei Tabellen mit der Bedingung, dass role = fahrlehrer
