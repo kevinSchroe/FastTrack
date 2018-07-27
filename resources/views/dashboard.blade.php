@@ -54,23 +54,21 @@
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
-                        @endif
-                        <?php
-                        $uid = Auth::user()->id;
-                        $stats = DB::table('statistiken')->select('kategorie', 'anzahl_test', 'anzahl_antworten', 'anzahl_richtig')->where('user_id', $uid)->get();
+                    @endif
+                    <?php
+                    $uid = Auth::user()->id;
+                    $stats = DB::table('statistiken')->select('kategorie', 'anzahl_test', 'anzahl_antworten', 'anzahl_richtig')->where('user_id', $uid)->get();
 
-                        ?>
+                    ?>
                     <!-- Statistiken hier -->
                         <div class="container flex-column" style="display: flex">
                                 <span class="text-md-left">Hallo <?php $query = DB::table('stammdatens')
-                                        ->select('vorname')
-                                        ->where('user_id', Auth::user()->id)->get();
+                                                                                ->select('vorname')
+                                                                                ->where('user_id', Auth::user()->id)->get();
                                     echo $query[0]->vorname?>!
                                 <br>
                                 <br>Hier siehst du deine bisherigen Statistiken:</span>
                             <?php  if (sizeof($stats) === 0) echo '<span style="margin-top: 3em; margin-bottom: 6em">Bisher noch keine Fragen absolviert!</span>'?>
-
-                            @if (sizeof($stats)>=1)
                         </div>
                         <script>getData(<?php echo $stats?>)</script>
                         <div id="bar-chart-div">
@@ -99,10 +97,9 @@
                             @endforeach
                             </tbody>
                         </table>
-                        @endif
-                        <div/>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 @endsection
