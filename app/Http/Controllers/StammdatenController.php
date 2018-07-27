@@ -163,7 +163,10 @@ class StammdatenController extends Controller
     {
         $user = User::find($id);
         $user->stammdaten->delete();
-       // $user->fahrlehrerVerwaltung->delete();
+        if (Gate::allows('isfahrlehrer')){
+            $user->fahrlehrerVerwaltung->delete();
+        }
+
         $user->delete();
 
         /**
