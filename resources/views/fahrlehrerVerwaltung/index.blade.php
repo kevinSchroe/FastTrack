@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <h2>Verwaltung Fahrlehrer-Übersicht</h2>
+    <h2>Fahrlehrerverwaltung</h2>
 @stop
 
 @section('content')
