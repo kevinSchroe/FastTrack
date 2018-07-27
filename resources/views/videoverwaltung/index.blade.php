@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+
     @if(Session::has('message'))
         <div class="alert alert-info">
             {{Session::get('message')}}
@@ -12,12 +13,9 @@
     @endif
 
 
-    <div>
-        <a href="videoverwaltung/create" class="btn btn-primary">Neues Video hinzufügen</a>
-    </div>
-
-            <div class="container_index">
-                <table class="table">
+    <a href="videoverwaltung/create" class="btn btn-primary">Neues Video hinzufügen</a>
+        <div class="container_index">
+                <table class="table table-bordered table-responsive">
                     <thead>
                     <tr>
                         <th>Video-ID</th>
