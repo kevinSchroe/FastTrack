@@ -87,7 +87,7 @@ class StammdatenController extends Controller
         if($request['role'] == 'fahrlehrer')
         fahrlehrerVerwaltung::create([
             'user_id' => $user->id,
-        ]);else{}
+        ]);
 
         return redirect('stammdaten');
 
