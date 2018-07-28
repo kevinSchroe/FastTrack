@@ -12,6 +12,7 @@ use Validator;
 use Gate;
 use Form;
 use Illuminate\Support\Facades\DB;
+use find;
 
 class fahrlehrerVerwaltungController extends Controller
 {
@@ -27,18 +28,15 @@ class fahrlehrerVerwaltungController extends Controller
      */
     public function index()
     {
-        // Abfrage der DB fahrlehrer_verwaltungs, stammdatens, users über JOIN der drei Tabellen mit der Bedingung, dass role = fahrlehrer
-        $fahrlehrer = DB::table('fahrlehrer_verwaltungs')
-            ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
-            ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')
-            ->select('fahrlehrer_verwaltungs.*', 'stammdatens.Vorname', 'stammdatens.Nachname', 'stammdatens.Geburtsdatum', 'users.role')
-            -> where('users.role', '=', 'fahrlehrer')
-            ->get();
-
         //Kontrolle, ob Benutzer Adminrechte hat
-        $user = Auth::user();
-
         if (Gate::allows('isadmin')) {
+            // Abfrage der DB fahrlehrer_verwaltungs, stammdatens, users über JOIN der drei Tabellen mit der Bedingung, dass role = fahrlehrer
+            $fahrlehrer = DB::table('fahrlehrer_verwaltungs')
+                ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
+                ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')
+                ->select('fahrlehrer_verwaltungs.*', 'stammdatens.Vorname', 'stammdatens.Nachname', 'stammdatens.Geburtsdatum', 'users.role')
+                -> where('users.role', '=', 'fahrlehrer')
+                ->get();
             return view('fahrlehrerVerwaltung.index', compact('fahrlehrer_verwaltungs', 'stammdatens', 'benutzers', 'fahrlehrer'));
         }else {
             //abort(401, 'This action is unauthorized.');
@@ -53,11 +51,23 @@ class fahrlehrerVerwaltungController extends Controller
      */
     public function edit($user_id)
     {
-        //Zugriff auf die Datenbanken Stammdatens und fahrlehrer_verwaltungs, geschlüsselt über die user_id
-        $daten = Stammdaten::find($user_id);
-        $fahrlehrer = fahrlehrerVerwaltung::find( Stammdaten::find($user_id));
+        //Kontrolle, ob User Adminrechte hat
+        if (Gate::allows('isadmin')) {
+            //Zugriff auf die Datenbanken Stammdatens und fahrlehrer_verwaltungs, geschlüsselt über die user_id
+            $daten = stammdaten::find($user_id);
+            $fahrlehrer = DB::table('fahrlehrer_verwaltungs')
+                ->where('fahrlehrer_verwaltungs.user_id', '=', $user_id)
+                ->select('fahrlehrer_verwaltungs.*')
+                ->first();
+          //  $fahrlehrer = fahrlehrerVerwaltung::find($daten);
 
-        return view('fahrlehrerVerwaltung.edit', compact( 'stammdaten',  'fahrlehrer','fahrlehrer_verwaltung', 'daten'));
+
+            return view('fahrlehrerVerwaltung.edit', compact( 'stammdaten', 'fahrlehrerVerwaltung', 'fahrlehrer', 'daten'));
+        } else {
+            // abort(401, 'This action is unauthorized.');
+            return view('error');
+
+        }
     }
 
     /**

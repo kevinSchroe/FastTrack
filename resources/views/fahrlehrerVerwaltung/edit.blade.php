@@ -31,46 +31,46 @@
             </div>
         </div>
 
-        {!! Form::model($fahrlehrer, ['route'=>['fahrlehrerVerwaltung.update', $daten->user_id], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
+        {!! Form::model($fahrlehrer, ['route'=>['fahrlehrerVerwaltung.update', $fahrlehrer->user_id ], 'method'=>'PATCH', 'class'=>'form-horizontal']) !!}
         <div class="form-group">
             {!! Form::label('einsatzgebiet', 'Einsatzgebiet', ['class'=>'control-label col-md-4']) !!}
             <div class="col-md-10">
-                {!! Form::text('einsatzgebiet', $daten->einsatzgebiet, ['class'=>'form-control']) !!}
+                {!! Form::text('einsatzgebiet', $fahrlehrer->einsatzgebiet, ['class'=>'form-control']) !!}
                 {!! $errors->has('einsatzgebiet')?$errors->first('einsatzgebiet'):'' !!}
             </div>
         </div>
         <div class="form-group">
             {!! Form::label('fahrlehrer_seit', 'Fahrlehrer seit...', ['class'=>'control-label col-md-4']) !!}
             <div class="col-md-10">
-                {!! Form::text('fahrlehrer_seit', $daten->fahrlehrer_seit, ['class'=>'form-control']) !!}
+                {!! Form::text('fahrlehrer_seit', $fahrlehrer->fahrlehrer_seit, ['class'=>'form-control']) !!}
                 {!! $errors->has('fahrlehrer_seit')?$errors->first('fahrlehrer_seit'):'' !!}
             </div>
         </div>
         <div class="form-group">
             {!! Form::label('automarke', 'Automarke', ['class'=>'control-label col-md-4']) !!}
             <div class="col-md-10">
-                {!! Form::text('automarke', $daten->automarke, ['class'=>'form-control']) !!}
+                {!! Form::text('automarke', $fahrlehrer->automarke, ['class'=>'form-control']) !!}
                 {!! $errors->has('automarke')?$errors->first('automarke'):'' !!}
             </div>
         </div>
         <div class="form-group">
             {!! Form::label('auto_baujahr', 'Auto Baujahr', ['class'=>'control-label col-md-4']) !!}
             <div class="col-md-10">
-                {!! Form::text('auto_baujahr', $daten->auto_baujahr, ['class'=>'form-control']) !!}
+                {!! Form::text('auto_baujahr', $fahrlehrer->auto_baujahr, ['class'=>'form-control']) !!}
                 {!! $errors->has('auto_baujahr')?$errors->first('auto_baujahr'):'' !!}
             </div>
         </div>
         <div class="form-group">
             {!! Form::label('kennzeichen', 'Kennzeichen', ['class'=>'control-label col-md-4']) !!}
             <div class="col-md-10">
-                {!! Form::text('kennzeichen', $daten->kennzeichen, ['class'=>'form-control']) !!}
+                {!! Form::text('kennzeichen', $fahrlehrer->kennzeichen, ['class'=>'form-control']) !!}
                 {!! $errors->has('kennzeichen')?$errors->first('kennzeichen'):'' !!}
             </div>
         </div>
         <div class="form-group">
             {!! Form::label('beschreibung', 'Beschreibung', ['class'=>'control-label col-md-4']) !!}
             <div class="col-md-10">
-                {!! Form::text('beschreibung', $daten->beschreibung, ['class'=>'form-control']) !!}
+                {!! Form::text('beschreibung', $fahrlehrer->beschreibung, ['class'=>'form-control']) !!}
                 {!! $errors->has('beschreibung')?$errors->first('beschreibung'):'' !!}
             </div>
         </div>

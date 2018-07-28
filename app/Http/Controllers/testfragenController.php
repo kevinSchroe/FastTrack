@@ -21,18 +21,18 @@ class testfragenController extends Controller
     }
 
     //Anzeigen der Vorfahrt-View mit den Daten aus der Datenbank-Tabelle "fragenkatalogs"
-    public function vorfahrt(Fragenkatalog $fragenkatalogs)
+    public function vorfahrt()
     {
-        return view('testfragen.vorfahrt', compact('fragenkatalogs'));
+        return view('testfragen.vorfahrt');
     }
 
-    public function technik(Fragenkatalog $fragenkatalogs)
+    public function technik()
     {
-        return view('testfragen.technik', compact('fragenkatalogs'));
+        return view('testfragen.technik');
     }
 
-    public function umwelt(Fragenkatalog $fragenkatalogs)
+    public function umwelt()
     {
-        return view('testfragen.umwelt', compact('fragenkatalogs'));
+        return view('testfragen.umwelt');
     }
 }

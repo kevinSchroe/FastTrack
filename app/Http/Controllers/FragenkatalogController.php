@@ -23,17 +23,13 @@ class FragenkatalogController extends Controller
      */
     public function index()
     {
-        $fragenkatalogs = fragenkatalog::all();
-        return view('Fragen.index', compact('fragenkatalogs'));
-
         //Kontrolle, ob User Adminrechte hat
-        $user = Auth::user();
-
         if (Gate::allows('isadmin')) {
+            $fragenkatalogs = fragenkatalog::all();
             return view('Fragen.index', compact('fragenkatalogs'));
         }else {
-            abort(401, 'This action is unauthorized.');
-            return view('auth.login');
+            // abort(401, 'This action is unauthorized.');
+            return view ('error');
         }
     }
 
@@ -45,7 +41,13 @@ class FragenkatalogController extends Controller
 
     public function create()
     {
-        return view('Fragen.create');
+        //Kontrolle, ob User Adminrechte hat
+        if (Gate::allows('isadmin')) {
+            return view('Fragen.create');
+        }else {
+            // abort(401, 'This action is unauthorized.');
+            return view ('error');
+        }
     }
 
     /**
@@ -122,13 +124,16 @@ class FragenkatalogController extends Controller
     //Löschen der gewünschten Datensätze in DB
     public function destroy($fragen_id)
     {
-        $fragenkatalog = fragenkatalog::where('fragen_id', '=', $fragen_id);
-        $fragenkatalog->delete();
+        if (Gate::allows('isadmin')) {
 
-        /**
-         * Stammdaten_User tabelle eintrag löschen
-         */
+            $fragenkatalog = fragenkatalog::where('fragen_id', '=', $fragen_id);
+            $fragenkatalog->delete();
 
-        return redirect('fragenkatalog');
+            return redirect('fragenkatalog');
+        }else {
+            // abort(401, 'This action is unauthorized.');
+            return view ('error');
+        }
+
     }
 }
