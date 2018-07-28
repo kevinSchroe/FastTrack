@@ -18,7 +18,7 @@
                             </div>
                             <div class="box2">
                                 <h4> Testfragen Vorfahrt</h4><br>
-                                <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/vorfahrt'" value="Testbogen starten"><br>
+                                <a href="testfragen/vorfahrt" class="btn btn-dark">Testbogen starten</a>
                             </div>
                         </div>
 
@@ -29,7 +29,7 @@
                             </div>
                             <div class="box2">
                                 <h4> Testfragen Technik</h4><br>
-                                <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/technik'" value="Testbogen starten"><br>
+                                <a href="testfragen/technik" class="btn btn-dark">Testbogen starten</a>
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@
                             </div>
                             <div class="box2">
                                 <h4> Testfragen Umwelt</h4><br>
-                                <input type="button" onClick="parent.location='http://localhost/FastTrack/public/testfragen/umwelt'" value="Testbogen starten"><br>
+                                <a href="testfragen/umwelt" class="btn btn-dark">Testbogen starten</a>
                             </div>
                         </div>
 

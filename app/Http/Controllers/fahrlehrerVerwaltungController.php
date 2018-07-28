@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\DB;
 
 class fahrlehrerVerwaltungController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,10 +27,6 @@ class fahrlehrerVerwaltungController extends Controller
      */
     public function index()
     {
-        $fahrlehrer_verwaltungs = fahrlehrerVerwaltung::all();
-        $stammdatens = Stammdaten::all();
-        $benutzers = User::all();
-
         // Abfrage der DB fahrlehrer_verwaltungs, stammdatens, users über JOIN der drei Tabellen mit der Bedingung, dass role = fahrlehrer
         $fahrlehrer = DB::table('fahrlehrer_verwaltungs')
             ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
@@ -44,27 +45,6 @@ class fahrlehrerVerwaltungController extends Controller
             return view ('error');
         }
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\fahrlehrerVerwaltung  $fahrlehrerVerwaltung
-     * @return \Illuminate\Http\Response
-     */
-    public function show(fahrlehrerVerwaltung $fahrlehrerVerwaltung)
-    {
-        // Abfrage der DB fahrlehrer_verwaltungs, stammdatens, users über JOIN der drei Tabellen mit der Bedingung, dass role = fahrlehrer
-        $data =DB::table('fahrlehrer_verwaltungs')
-                ->join('stammdatens', 'fahrlehrer_verwaltungs.user_id', '=', 'stammdatens.user_id')
-                ->join('users', 'fahrlehrer_verwaltungs.user_id', '=', 'users.id')
-                ->select('fahrlehrer_verwaltungs.*', 'stammdatens.Vorname', 'stammdatens.Nachname', 'stammdatens.Geburtsdatum', 'users.role')
-                -> where('users.role', '=', 'fahrlehrer')
-                ->get();
-
-        print_r($data);
-    }
-
     /**
      * Show the form for editing the specified resource.
      *

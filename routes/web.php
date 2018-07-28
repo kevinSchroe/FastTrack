@@ -31,6 +31,9 @@ Route::get('/livestream', 'HomeController@livestream')->name('livestream');
 Route::get('/videos', 'HomeController@videos')->name('videos');
 Route::get('/admin_dashboard', 'AdminController@index')->name('admin_dashboard');
 Route::get('/testfragen', 'testfragencontroller@index')->name('testfragen');
+Route::get('testfragen/vorfahrt', 'testfragenController@Vorfahrt')->name('Fragebogen Vorfahrt');
+Route::get('testfragen/technik', 'testfragenController@Technik')->name('Fragebogen Technik');
+Route::get('testfragen/umwelt', 'testfragenController@Umwelt')->name('Fragebogen Umwelt');
 Route::get('/fahrlehrer', 'fahrlehrerVerwaltungController@ansicht')->name('fahrlehrer');
 
 Route::resource('/stammdaten', 'StammdatenController');
@@ -41,7 +44,4 @@ Route::resource('/statistiken', 'StatistikenController');
 
 
 
-Route::get('testfragen/vorfahrt', 'testfragenController@Vorfahrt');
-Route::post('testfragen/vorfahrt', 'testfragenController@subpage');
-Route::get('testfragen/umwelt', 'testfragenController@Umwelt');
-Route::get('testfragen/technik', 'testfragenController@Technik');
+

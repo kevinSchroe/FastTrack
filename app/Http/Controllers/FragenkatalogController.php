@@ -69,19 +69,6 @@ class FragenkatalogController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\fragenkatalog  $fragenkatalog
-     * @return \Illuminate\Http\Response
-     */
-
-    //Daten aus der Datenbank auslesen
-    public function show(fragenkatalog $fragenkatalog)
-    {
-        $data = Fragenkatalog::select("select * from fragenkatalog");
-        print_r($data);    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\fragenkatalog  $fragenkatalog
