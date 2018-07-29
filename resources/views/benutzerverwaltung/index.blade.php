@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<!-- Durch diese Seite können autorisierte Personen neue Benutzer anlegen -->
+
 @section('header')
     <h2>Benutzerverwaltung</h2>
 @stop
@@ -48,7 +50,7 @@
 
                         <a href="{{ route('stammdaten.edit', $user->id) }}" class="btn btn-success">Bearbeiten</a>
 
-                    <td> {!! Form::open(['method'=>'delete', 'route'=>['stammdaten.destroy', $user->id]]) !!}
+                    <td>{!! Form::open(['method'=>'delete', 'route'=>['stammdaten.destroy', $user->id]]) !!}
                         {!! Form::submit('Löschen', ['class'=>'btn btn-danger', 'onclick'=>'return confirm("Möchten Sie wirklich den Benutzer löschen?")']) !!}
                         {!! Form::close() !!}
                     </td>
