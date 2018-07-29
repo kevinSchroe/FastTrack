@@ -31,8 +31,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="antworten">Mögliche Antworten</label><br>
-                                <input type="text" class="form-control" id="antworten" name="antworten" required placeholder="Antwort 1, Antwort 2, Antwort 3, ...">
+                                <label for="antworten">Mögliche Antworten (maximal drei)</label><br>
+                                <textarea class="form-control" id="antworten" name="antworten" rows="3" required placeholder="Antwort 1, Antwort 2, Antwort 3"></textarea>
                             </div>
 
                             <div class="form-group">

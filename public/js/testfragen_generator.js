@@ -26,7 +26,7 @@ function shuffle(a) {
 function evaluateQuestion() {
 
     var selectedAnswer = $('input[type=radio]:checked').data('content');
-    if (selectedAnswer.trim().toLowerCase() === currentCorrectAnswer.trim().toLowerCase()) { // damit die Antworten eingabe sicher sind werden Leerzeichen abgeschnitten(trim) und alle Buchstaben in Kleinbuchstaben gespeichert(toLowerCase)
+    if (selectedAnswer.trim().toLowerCase() === currentCorrectAnswer.trim().toLowerCase()) { // damit die Antworten eingabe sicher ist werden Leerzeichen abgeschnitten(trim) und alle Buchstaben in Kleinbuchstaben gespeichert(toLowerCase)
         correctAnswers++;
     } else {
         //Falsch Beantwortete Fragen sammeln, um diese nach Abschluss des Fragebogens anzuzeigen

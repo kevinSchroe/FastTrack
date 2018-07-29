@@ -28,4 +28,8 @@ class User extends Authenticatable
         return $this->hasOne(Stammdaten::class);
     }
 
+    public function statistiken(){
+        return $this->hasOne(Statistiken::class);
+    }
+
 }
