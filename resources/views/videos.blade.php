@@ -2,7 +2,7 @@
 
 @section('content')
     <script>
-        //Funktion verwandelt normale Youtubevideo URLs in "embed URLs"
+        //Funktion verwandelt normale Youtubevideo-URLs in "embed URLs"
         function getId(url) {
             var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/; //Regular Expression
             var match = url.match(regExp);
