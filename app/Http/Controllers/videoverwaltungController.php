@@ -117,10 +117,6 @@ class videoverwaltungController extends Controller
             ->where('video_id', '=', $video_id)
             ->delete();
 
-        /**
-         * Stammdaten_User tabelle eintrag löschen
-         */
-
         return redirect('videoverwaltung');
     }
 }

@@ -1,8 +1,8 @@
-/*Das hier ist das lade script
-  für die statistiken vom dashboard*/
+/*Das hier ist das Ladescript
+  für die Statistiken vom dashboard*/
 
 
-//Glabale Variablen
+//Globale Variablen
 var gData;
 
 
