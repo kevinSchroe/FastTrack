@@ -7,7 +7,6 @@ use App\User;
 use App\fahrlehrerVerwaltung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Statistiken;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Validator;
