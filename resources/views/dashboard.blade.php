@@ -3,20 +3,20 @@
 @section('content')
 
     <?php
-    //Hier der DB Insert Code für die Statistiken (Siehe fragebogen_generator.js)
+    //DB Insert Code für die Statistiken (Siehe fragebogen_generator.js)
     if (isset($_POST['kategorie'])) {
         $uid = Auth::user()->id;
         $kategorie = $_POST['kategorie'];
         $anzahl_antworten = $_POST['antworten'];
         $anzahl_richtig = $_POST['richtig'];
-        //Nun eine query zusammensetzen die evtl Einträge schon berücksichtigt
-        //Abfragen ob evtl schon einträge vorhanden sind
+        //Nun eine Query zusammensetzen, die eventuelle Einträge schon berücksichtigt
+        //Abfragen ob evtl schon Einträge vorhanden sind
         $stats = DB::table('statistiken')
             ->select('kategorie', 'anzahl_test', 'anzahl_antworten', 'anzahl_richtig')
             ->where('user_id', $uid)
             ->where('kategorie', $kategorie)
             ->get();
-        //Wenn ja, dann aufaddieren ansonsten anlegen
+        //Falls Einträge bereits vorhanden sind, aufaddieren, ansonsten anlegen
         if (sizeof($stats) !== 0) { //Vorhanden also ein update
             DB::table('statistiken')
                 ->where('user_id', $uid)
@@ -26,13 +26,12 @@
                         'anzahl_antworten' => $stats[0]->anzahl_antworten + $anzahl_antworten,
                         'anzahl_richtig' => $stats[0]->anzahl_richtig + $anzahl_richtig]
                 );
-        } else { //Nicht Vorhanden also ein insert
+        } else { //Wenn nicht vorhanden ein insert
             DB::table('statistiken')->insert(
                 ['user_id' => $uid, 'kategorie' => $kategorie, 'anzahl_test' => 1, 'anzahl_antworten' => $anzahl_antworten, 'anzahl_richtig' => $anzahl_richtig]
             );
         }
     }
-
     ?>
 
     <head>
@@ -58,8 +57,8 @@
                     <?php
                     $uid = Auth::user()->id;
                     $stats = DB::table('statistiken')->select('kategorie', 'anzahl_test', 'anzahl_antworten', 'anzahl_richtig')->where('user_id', $uid)->get();
-
                     ?>
+
                     <!-- Statistiken hier -->
                         <div class="container flex-column" style="display: flex">
                                 <span class="text-md-left">Hallo <?php $query = DB::table('stammdatens')
@@ -83,7 +82,6 @@
                             <th>Richtige Antworten</th>
                             <th>Falsche Antworten</th>
                             <th>Antworten Gesamt</th>
-
                             </thead>
                             <tbody>
                             @foreach($stats as $stat)
