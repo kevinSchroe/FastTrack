@@ -7,6 +7,7 @@ use App\User;
 use App\fahrlehrerVerwaltung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Statistiken;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -45,7 +46,13 @@ class StammdatenController extends Controller
 
     public function create()
     {
-        return view('benutzerverwaltung.create');
+        //Kontrolle, ob User Adminrechte hat
+        if (Gate::allows('isadmin')) {
+            return view('benutzerverwaltung.create');
+        }else {
+            // abort(401, 'This action is unauthorized.');
+            return view('error');
+        }
     }
 
     /**Verweis zum User und zu denn Stammdaten, um die Benutzer anzulegen*/
@@ -102,8 +109,14 @@ class StammdatenController extends Controller
 
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('benutzerverwaltung.edit', compact('user', 'stammdaten'));
+        //Kontrolle, ob User Adminrechte hat
+        if (Gate::allows('isadmin')) {
+            $user = User::find($id);
+            return view('benutzerverwaltung.edit', compact('user', 'stammdaten'));
+        }else {
+            // abort(401, 'This action is unauthorized.');
+            return view('error');
+        }
     }
 
     /**
@@ -149,22 +162,30 @@ class StammdatenController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $user->stammdaten->delete();
+        $role = $user->role;
 
-        if (Gate::allows('isfahrlehrer')){
+        /*
+        if($role == 'fahrlehrer'){
             $user->fahrlehrerVerwaltung->delete();
+            $user->stammdaten->delete();
+            $user->delete();
+        }elseif($role == 'fahrschueler'){
+            $user->stammdaten->delete();
+            $user->delete();
+            $user->statistiken->delete();
+            //$user->DB::table("select * from statistiken")->delete();
         }
-
-
+        else{
+            $user->stammdaten->delete();
+            $user->delete();
+        }*/
+        $user->stammdaten->delete();
         $user->delete();
-
-
-
-           //  $query = fahrlehrerVerwaltung::where('user_id','=', $id);
-
-           // if($query !== Null)
-           // {    $user->fahrlehrerVerwaltung->delete();
-            //        }
+        if($role == 'fahrlehrer'){
+            $user->fahrlehrerVerwaltung->delete();
+        }elseif($role == 'fahrschueler'){
+            DB::table("statistiken")->where('user_id', '=', $id)->delete();
+        }
 
 
         /**
