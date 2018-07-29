@@ -56,7 +56,6 @@ class videoverwaltungController extends Controller
             'video_title' => $request['video_title'],
             'video_url' => $request['video_url']
         ]);
-
         return redirect('videoverwaltung');
     }
 
